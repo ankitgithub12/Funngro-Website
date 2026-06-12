@@ -1,0 +1,432 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   GOOGLE FONTS — Playfair Display (display) + Inter (body)
+   Loaded via index.html <link> for performance
+   ============================================================ */
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background-color: #0B1A14;
+    color: #f3f4f6;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    selection: background-color #2DDE98;
+    selection: color #0B1A14;
+  }
+  ::selection {
+    background-color: #2DDE98;
+    color: #0B1A14;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+}
+
+/* ============================================================
+   ANNOUNCEMENT BAR
+   ============================================================ */
+.announcement-bar {
+  background-color: #071210;
+  border-bottom: 1px solid rgba(45, 222, 152, 0.12);
+  font-size: 12px;
+  letter-spacing: 0.01em;
+}
+
+/* ============================================================
+   GLASSMORPHISM — Green-tinted panels
+   ============================================================ */
+.glass-panel {
+  background: rgba(11, 34, 22, 0.70);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.glass-card {
+  background: rgba(17, 34, 24, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 16px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card:hover {
+  border-color: rgba(45, 222, 152, 0.25);
+  box-shadow: 0 8px 32px rgba(45, 222, 152, 0.08);
+  transform: translateY(-2px);
+}
+
+.glass-input {
+  background: rgba(7, 20, 13, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #f3f4f6;
+  transition: all 0.2s;
+  border-radius: 10px;
+  padding: 10px 16px;
+}
+
+.glass-input:focus {
+  background: rgba(11, 34, 22, 0.85);
+  border-color: rgba(45, 222, 152, 0.4);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(45, 222, 152, 0.1);
+}
+
+/* ============================================================
+   GLOW BUTTON — Funngro's signature green CTA
+   ============================================================ */
+.btn-glow {
+  background-color: #2DDE98;
+  color: #071210;
+  font-weight: 700;
+  border-radius: 9999px;
+  padding: 12px 28px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.25s ease;
+  box-shadow: 0 0 24px rgba(45, 222, 152, 0.35);
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.01em;
+}
+
+.btn-glow:hover {
+  background-color: #5ef5b0;
+  box-shadow: 0 0 40px rgba(45, 222, 152, 0.5);
+  transform: translateY(-1px);
+}
+
+.btn-outline-green {
+  background: transparent;
+  color: #2DDE98;
+  font-weight: 600;
+  border: 1.5px solid rgba(45, 222, 152, 0.5);
+  border-radius: 9999px;
+  padding: 11px 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.25s ease;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+}
+
+.btn-outline-green:hover {
+  border-color: #2DDE98;
+  background: rgba(45, 222, 152, 0.08);
+}
+
+/* ============================================================
+   BRAND MARQUEE — Auto-scrolling logo strip
+   ============================================================ */
+.marquee-container {
+  overflow: hidden;
+  position: relative;
+}
+
+.marquee-container::before,
+.marquee-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 80px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.marquee-container::before {
+  left: 0;
+  background: linear-gradient(to right, #0B1A14, transparent);
+}
+
+.marquee-container::after {
+  right: 0;
+  background: linear-gradient(to left, #0B1A14, transparent);
+}
+
+.marquee-track {
+  display: flex;
+  gap: 48px;
+  animation: marquee 28s linear infinite;
+  width: max-content;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ============================================================
+   LIVE PAYOUT TICKER WIDGET
+   ============================================================ */
+.ticker-card {
+  background: rgba(9, 22, 15, 0.92);
+  border: 1px solid rgba(45, 222, 152, 0.2);
+  border-radius: 18px;
+  backdrop-filter: blur(20px);
+  overflow: hidden;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(45, 222, 152, 0.08);
+}
+
+.ticker-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  font-size: 12px;
+  animation: fadeInRow 0.4s ease-out;
+}
+
+@keyframes fadeInRow {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================================
+   SECTION PILL LABELS  (e.g., "· CHAPTER ONE · FIVE STEPS ·")
+   ============================================================ */
+.section-pill {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(45, 222, 152, 0.8);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.section-pill::before,
+.section-pill::after {
+  content: '·';
+  color: rgba(45, 222, 152, 0.4);
+}
+
+/* ============================================================
+   STEP CARD NUMBER BADGE
+   ============================================================ */
+.step-number {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  color: rgba(45, 222, 152, 0.7);
+  letter-spacing: 0.05em;
+  border: 1.5px dashed rgba(45, 222, 152, 0.4);
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   CAMPAIGN TYPE CARDS
+   ============================================================ */
+.campaign-card {
+  background: rgba(17, 34, 24, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 14px;
+  padding: 20px;
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.campaign-card:hover {
+  border-color: rgba(45, 222, 152, 0.3);
+  background: rgba(22, 44, 32, 0.9);
+  box-shadow: 0 4px 20px rgba(45, 222, 152, 0.06);
+  transform: translateY(-2px);
+}
+
+/* ============================================================
+   STAT GRID CARDS
+   ============================================================ */
+.stat-card {
+  background: rgba(17, 34, 24, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 14px;
+  padding: 24px;
+  text-align: center;
+}
+
+/* ============================================================
+   CASE STUDY TABLE
+   ============================================================ */
+.cs-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 13px;
+}
+
+.cs-table th {
+  background: rgba(17, 34, 24, 0.95);
+  color: #9CA3AF;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 10px;
+  padding: 12px 20px;
+}
+
+.cs-table td {
+  padding: 14px 20px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  color: #e5e7eb;
+}
+
+.cs-table tbody tr:hover {
+  background: rgba(45, 222, 152, 0.04);
+}
+
+/* ============================================================
+   CUSTOM SCROLLBAR — dark-green theme
+   ============================================================ */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #071210; }
+::-webkit-scrollbar-thumb { background: #1a3828; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #2DDE98; }
+
+/* ============================================================
+   SHIMMER — Loading skeleton in dark-green
+   ============================================================ */
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+
+.shimmer {
+  background: linear-gradient(90deg, #112218 25%, #1a3828 50%, #112218 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* ============================================================
+   HERO HEADLINE — italic green accent word (matches funngro.com)
+   ============================================================ */
+.headline-accent {
+  font-style: italic;
+  color: #2DDE98;
+}
+
+/* ============================================================
+   BREADCRUMB
+   ============================================================ */
+.breadcrumb {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #6B7280;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.breadcrumb a:hover { color: #9CA3AF; }
+
+/* ============================================================
+   VERTICAL STEP CONNECTOR LINE
+   ============================================================ */
+.step-connector {
+  position: relative;
+}
+
+.step-connector::before {
+  content: '';
+  position: absolute;
+  left: 17px;
+  top: 38px;
+  bottom: -20px;
+  width: 1.5px;
+  background: linear-gradient(to bottom, rgba(45,222,152,0.3), rgba(45,222,152,0.05));
+}
+
+/* ============================================================
+   VERTICAL TAG / BADGE
+   ============================================================ */
+.tag-pill {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  background: rgba(17, 34, 24, 0.8);
+  border: 1px solid rgba(45, 222, 152, 0.2);
+  font-size: 11px;
+  font-weight: 600;
+  color: #9CA3AF;
+  font-family: 'Inter', sans-serif;
+  transition: all 0.2s;
+}
+
+.tag-pill:hover {
+  border-color: rgba(45, 222, 152, 0.5);
+  color: #2DDE98;
+}
+
+/* ============================================================
+   FOOTER LINK COLUMNS
+   ============================================================ */
+.footer-link {
+  color: #6B7280;
+  font-size: 13px;
+  font-family: 'Inter', sans-serif;
+  transition: color 0.2s;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.footer-link:hover { color: #2DDE98; }
+
+/* ============================================================
+   SOCIAL ICON BUTTON
+   ============================================================ */
+.social-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 9999px;
+  border: 1px solid rgba(255,255,255,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6B7280;
+  font-size: 14px;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+
+.social-btn:hover {
+  border-color: rgba(45, 222, 152, 0.4);
+  color: #2DDE98;
+  background: rgba(45, 222, 152, 0.07);
+}
+
+/* ============================================================
+   BOUNCE-SLOW ANIMATION (legacy compatibility)
+   ============================================================ */
+@keyframes bounceSlow {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-6px); }
+}
+
+.animate-bounce-slow {
+  animation: bounceSlow 3s ease-in-out infinite;
+}

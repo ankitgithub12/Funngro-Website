@@ -1,0 +1,107 @@
+{
+  "gigs": [
+    {
+      "_id": "gig_mock_1",
+      "title": "Design Instagram Reels Cover Templates",
+      "company": "Gizmo Tech Solutions",
+      "description": "Create a set of 10 modern, vibrant cover templates for our tech reels. The style should be futuristic, sleek, and follow our brand guideline document.",
+      "budget": 1500,
+      "category": "Design",
+      "skills": [
+        "Photoshop",
+        "Canva",
+        "Graphic Design"
+      ],
+      "duration": "5 days",
+      "createdAt": "2026-06-09T12:48:57.277Z"
+    },
+    {
+      "_id": "gig_mock_2",
+      "title": "Write Blog Articles on Gen-Z Money Management",
+      "company": "PennyWise Finance",
+      "description": "We are looking for a teen writer to create 3 engaging, easy-to-understand blog posts (800 words each) on basic budgeting, savings, and why compound interest is a superpower.",
+      "budget": 2000,
+      "category": "Writing",
+      "skills": [
+        "Content Writing",
+        "SEO",
+        "Research"
+      ],
+      "duration": "7 days",
+      "createdAt": "2026-06-10T12:48:57.279Z"
+    },
+    {
+      "_id": "gig_mock_3",
+      "title": "Build Responsive React Portfolio Page",
+      "company": "Alpha Digital Agency",
+      "description": "Develop a neat, dark-themed responsive portfolio site using React and Tailwind CSS based on our Figma layout designs. Clean, component-based code is required.",
+      "budget": 4500,
+      "category": "Tech",
+      "skills": [
+        "React",
+        "Tailwind CSS",
+        "HTML/CSS"
+      ],
+      "duration": "10 days",
+      "createdAt": "2026-06-11T12:48:57.279Z"
+    },
+    {
+      "_id": "gig_mock_4",
+      "title": "Edit Short Brand Promotional Video",
+      "company": "EcoSphere Apparel",
+      "description": "Edit a 30-60 second brand video using raw clips. Add background music, sound effects, subtitles, and engaging transitions suitable for Instagram and TikTok.",
+      "budget": 1800,
+      "category": "Video",
+      "skills": [
+        "Premiere Pro",
+        "CapCut",
+        "Video Editing"
+      ],
+      "duration": "4 days",
+      "createdAt": "2026-06-12T00:48:57.279Z"
+    },
+    {
+      "_id": "gig_mock_5",
+      "title": "Promote App Launch on Student Networks",
+      "company": "CampusHub",
+      "description": "Share the launch post of our student app across your school/college WhatsApp groups, social handles, and invite at least 15 fellow students to sign up.",
+      "budget": 1000,
+      "category": "Marketing",
+      "skills": [
+        "Social Media",
+        "Communication",
+        "Marketing"
+      ],
+      "duration": "3 days",
+      "createdAt": "2026-06-12T12:48:57.279Z"
+    }
+  ],
+  "applications": [
+    {
+      "_id": "app_mock_1",
+      "gigId": "gig_mock_1",
+      "gigTitle": "Design Instagram Reels Cover Templates",
+      "teenName": "Kabir Mehta",
+      "teenEmail": "kabir.mehta@example.com",
+      "age": 16,
+      "skills": "Canva, Illustrator, Color Theory",
+      "portfolioLink": "https://behance.net/kabir-designs",
+      "pitch": "I've been designing social graphics for school clubs for 2 years. I love Gizmo Tech's products and can deliver modern layouts that boost CTR!",
+      "status": "pending",
+      "createdAt": "2026-06-11T12:48:57.279Z"
+    },
+    {
+      "_id": "app_mock_2",
+      "gigId": "gig_mock_2",
+      "gigTitle": "Write Blog Articles on Gen-Z Money Management",
+      "teenName": "Ananya Sen",
+      "teenEmail": "ananya.sen@example.com",
+      "age": 17,
+      "skills": "Creative Writing, Budgeting, SEO",
+      "portfolioLink": "https://medium.com/@ananya-writes",
+      "pitch": "I manage my own finance blog on Medium. I can write extremely relatable finance advice tailored specifically to teenagers because I am one!",
+      "status": "approved",
+      "createdAt": "2026-06-12T06:48:57.279Z"
+    }
+  ]
+}
