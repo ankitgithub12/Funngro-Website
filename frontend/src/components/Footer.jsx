@@ -100,7 +100,7 @@ export default function Footer({ setActiveTab }) {
             {/* App Store badges */}
             <div className="flex gap-3 mt-6">
               <a
-                href="https://play.google.com/store/apps/details?id=com.funngro.app"
+                href="https://play.google.com/store/apps/details?id=com.wishbanc.funngro"
                 target="_blank"
                 rel="noreferrer"
                 className="flex items-center gap-1.5 px-3 py-2 rounded-lg border border-white/10 hover:border-brand-green/30 transition-colors"

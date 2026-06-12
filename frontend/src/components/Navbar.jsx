@@ -1,13 +1,27 @@
 import React, { useState, useEffect } from 'react';
 
-// Simple SVG icon for the Funngro hand/sparkle logo
-function FunngroLogo() {
+/* ── Real Funngro Logo SVG ──────────────────────────────── */
+function FunngroLogo({ size = 34 }) {
   return (
-    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <rect width="32" height="32" rx="8" fill="#2DDE98" fillOpacity="0.12" />
-      <path d="M10 22 C10 22 8 18 11 15 C13 13 14 12 14 10 C14 8 16 7 16 7 C16 7 18 8 18 10 C18 12 19 13 21 15 C24 18 22 22 22 22" stroke="#2DDE98" strokeWidth="1.5" strokeLinecap="round"/>
-      <path d="M13 22 L19 22" stroke="#2DDE98" strokeWidth="1.5" strokeLinecap="round"/>
-      <circle cx="16" cy="10" r="1.5" fill="#2DDE98" />
+    <svg width={size} height={size} viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <rect width="34" height="34" rx="10" fill="#2DDE98" fillOpacity="0.15" />
+      <rect width="34" height="34" rx="10" stroke="#2DDE98" strokeOpacity="0.2" strokeWidth="1" />
+      {/* F letterform stylized */}
+      <text x="7" y="25" fontFamily="'Playfair Display', serif" fontSize="20" fontWeight="900" fill="#2DDE98">F</text>
+      {/* Green dot accent */}
+      <circle cx="27" cy="8" r="3" fill="#2DDE98" opacity="0.9" />
+    </svg>
+  );
+}
+
+/* ── Google Play Icon SVG (real, not emoji) ─────────────── */
+function GooglePlayIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M3.18 1C2.5 1.38 2 2.07 2 2.91V21.1c0 .84.5 1.53 1.18 1.91L13 12 3.18 1z" fill="currentColor" opacity="0.8"/>
+      <path d="M16.25 8.75L5.5 2.5 14.5 12l1.75-3.25z" fill="currentColor"/>
+      <path d="M16.25 15.25L14.5 12l-9 9.5 10.75-6.25z" fill="currentColor" opacity="0.7"/>
+      <path d="M22 12c0-.7-.38-1.3-.95-1.65L17.5 8.5 15.5 12l2 3.5 3.55-1.85C21.62 13.3 22 12.7 22 12z" fill="currentColor" opacity="0.6"/>
     </svg>
   );
 }
@@ -35,20 +49,27 @@ export default function Navbar({ activeTab, setActiveTab }) {
   return (
     <header className="sticky top-0 z-50" role="banner">
       {/* ── Announcement Bar ─────────────────────────────── */}
-      <div className="announcement-bar px-4 py-2 hidden md:flex items-center justify-between">
-        <div className="flex items-center gap-2 mx-auto text-slate-400">
-          <span className="text-brand-green text-[11px]">✦</span>
-          <span className="text-[11px]">
-            As seen on <strong className="text-slate-200">Shark Tank India</strong>
-            {' '}· Season 2 · Investment from Amit Jain · Funngro is now backed by SucSEED.
+      <div className="announcement-bar px-4 py-2 hidden md:flex items-center justify-center">
+        <div className="flex items-center gap-3 text-slate-400">
+          <span className="flex items-center gap-1.5">
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
+              <path d="M5 0L6.12 3.38H9.51L6.88 5.47L7.94 8.82L5 6.67L2.06 8.82L3.12 5.47L0.49 3.38H3.88L5 0Z" fill="#2DDE98"/>
+            </svg>
+            <span className="text-[11px]">
+              As seen on <strong className="text-slate-200">Shark Tank India</strong>
+              {' '}· Season 2 · Backed by Amit Jain & SucSEED
+            </span>
           </span>
           <a
             href="https://www.instagram.com/funngro/"
             target="_blank"
             rel="noreferrer"
-            className="ml-4 text-[11px] font-bold tracking-widest uppercase text-brand-green hover:text-brand-green-light transition-colors"
+            className="text-[11px] font-bold tracking-widest uppercase text-[#2DDE98] hover:text-white transition-colors flex items-center gap-1"
           >
-            Read the inside story ▸
+            Read story
+            <svg width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+              <path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+            </svg>
           </a>
         </div>
       </div>
@@ -57,8 +78,8 @@ export default function Navbar({ activeTab, setActiveTab }) {
       <nav
         className={`w-full transition-all duration-300 ${
           scrolled
-            ? 'bg-brand-dark-bg/95 backdrop-blur-xl border-b border-white/05 shadow-lg'
-            : 'bg-brand-dark-bg/80 backdrop-blur-md border-b border-white/04'
+            ? 'nav-scrolled'
+            : 'bg-[#071210]/85 backdrop-blur-md border-b border-white/[0.04]'
         }`}
         aria-label="Main navigation"
       >
@@ -72,7 +93,7 @@ export default function Navbar({ activeTab, setActiveTab }) {
               aria-label="Funngro home"
             >
               <FunngroLogo />
-              <span className="font-display text-xl font-bold text-white group-hover:text-brand-green transition-colors">
+              <span className="font-display text-xl font-bold text-white group-hover:text-[#2DDE98] transition-colors duration-200">
                 Funngro
               </span>
             </button>
@@ -83,12 +104,12 @@ export default function Navbar({ activeTab, setActiveTab }) {
                 <button
                   key={label}
                   onClick={() => tab && setActiveTab(tab)}
-                  className={`px-3.5 py-2 rounded-lg text-[13px] font-medium transition-all duration-200 ${
+                  className={`px-3.5 py-2 rounded-xl text-[13px] font-medium transition-all duration-200 ${
                     (tab === 'teen' && activeTab === 'teen') ||
                     (tab === 'company' && activeTab === 'company')
-                      ? 'text-brand-green font-semibold'
-                      : 'text-slate-400 hover:text-slate-200 hover:bg-white/04'
-                  } ${!tab ? 'opacity-60 cursor-default' : ''}`}
+                      ? 'text-[#2DDE98] font-semibold bg-[#2DDE98]/08'
+                      : 'text-slate-400 hover:text-slate-200 hover:bg-white/[0.04]'
+                  } ${!tab ? 'opacity-50 cursor-default' : ''}`}
                   aria-current={
                     (tab === 'teen' && activeTab === 'teen') ||
                     (tab === 'company' && activeTab === 'company')
@@ -104,26 +125,26 @@ export default function Navbar({ activeTab, setActiveTab }) {
             <div className="flex items-center gap-3 flex-shrink-0">
               {/* Language pills */}
               <div className="hidden md:flex items-center gap-1 text-[11px] font-semibold">
-                <button className="px-2.5 py-1 rounded-full bg-brand-green text-brand-dark-bg font-bold text-[10px]">EN</button>
+                <button className="px-2.5 py-1 rounded-full bg-[#2DDE98] text-[#071210] font-bold text-[10px]">EN</button>
                 <button className="px-2.5 py-1 rounded-full text-slate-500 hover:text-slate-300 transition-colors text-[10px]">Hi-En</button>
                 <button className="px-2.5 py-1 rounded-full text-slate-500 hover:text-slate-300 transition-colors text-[10px]">हिं</button>
               </div>
 
-              {/* Download CTA */}
+              {/* Download CTA — Google Play badge style */}
               <a
-                href="https://play.google.com/store/apps/details?id=com.funngro.app"
+                href="https://play.google.com/store/apps/details?id=com.wishbanc.funngro"
                 target="_blank"
                 rel="noreferrer"
-                className="btn-glow text-[13px] px-5 py-2.5 hidden sm:flex"
+                className="btn-glow text-[12px] px-4 py-2 hidden sm:flex items-center gap-2"
                 aria-label="Download Funngro app on Google Play"
               >
-                Download
-                <span aria-hidden="true">→</span>
+                <GooglePlayIcon />
+                <span>Download</span>
               </a>
 
               {/* Mobile hamburger */}
               <button
-                className="lg:hidden p-2 rounded-lg text-slate-400 hover:text-brand-green transition-colors"
+                className="lg:hidden p-2 rounded-xl text-slate-400 hover:text-[#2DDE98] hover:bg-[#2DDE98]/08 transition-colors"
                 onClick={() => setMobileOpen(!mobileOpen)}
                 aria-expanded={mobileOpen}
                 aria-label="Toggle navigation menu"
@@ -144,28 +165,29 @@ export default function Navbar({ activeTab, setActiveTab }) {
 
         {/* ── Mobile Menu ───────────────────────────────── */}
         {mobileOpen && (
-          <div className="lg:hidden border-t border-white/05 bg-brand-dark-bg/98 px-4 pb-4 pt-2" role="navigation" aria-label="Mobile navigation">
+          <div className="lg:hidden border-t border-white/[0.05] bg-[#071210]/98 backdrop-blur-xl px-4 pb-5 pt-3" role="navigation" aria-label="Mobile navigation">
             {navLinks.map(({ label, tab }) => (
               <button
                 key={label}
                 onClick={() => { tab && setActiveTab(tab); setMobileOpen(false); }}
-                className={`block w-full text-left px-3 py-3 rounded-lg text-sm font-medium transition-colors ${
+                className={`flex w-full items-center text-left px-4 py-3 rounded-xl text-sm font-medium transition-colors mb-1 ${
                   (tab === 'teen' && activeTab === 'teen') ||
                   (tab === 'company' && activeTab === 'company')
-                    ? 'text-brand-green font-semibold bg-brand-green/06'
-                    : 'text-slate-400 hover:text-slate-200'
+                    ? 'text-[#2DDE98] font-semibold bg-[#2DDE98]/08 border border-[#2DDE98]/15'
+                    : 'text-slate-400 hover:text-slate-200 hover:bg-white/[0.03]'
                 }`}
               >
                 {label}
               </button>
             ))}
             <a
-              href="https://play.google.com/store/apps/details?id=com.funngro.app"
+              href="https://play.google.com/store/apps/details?id=com.wishbanc.funngro"
               target="_blank"
               rel="noreferrer"
-              className="btn-glow mt-3 w-full justify-center"
+              className="btn-glow mt-4 w-full justify-center"
             >
-              Download app →
+              <GooglePlayIcon />
+              Download App
             </a>
           </div>
         )}

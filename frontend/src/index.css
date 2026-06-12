@@ -4,7 +4,6 @@
 
 /* ============================================================
    GOOGLE FONTS — Playfair Display (display) + Inter (body)
-   Loaded via index.html <link> for performance
    ============================================================ */
 
 @layer base {
@@ -13,17 +12,16 @@
   }
   body {
     font-family: 'Inter', system-ui, sans-serif;
-    background-color: #0B1A14;
+    background-color: #071210;
     color: #f3f4f6;
     min-height: 100vh;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    selection: background-color #2DDE98;
-    selection: color #0B1A14;
+    overflow-x: hidden;
   }
   ::selection {
     background-color: #2DDE98;
-    color: #0B1A14;
+    color: #071210;
   }
 
   h1, h2, h3 {
@@ -35,56 +33,92 @@
    ANNOUNCEMENT BAR
    ============================================================ */
 .announcement-bar {
-  background-color: #071210;
-  border-bottom: 1px solid rgba(45, 222, 152, 0.12);
+  background: linear-gradient(90deg, #050e0a 0%, #071210 50%, #050e0a 100%);
+  border-bottom: 1px solid rgba(45, 222, 152, 0.15);
   font-size: 12px;
   letter-spacing: 0.01em;
+  position: relative;
+  overflow: hidden;
+}
+
+.announcement-bar::before {
+  content: '';
+  position: absolute;
+  left: -100%;
+  top: 0;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(45,222,152,0.04), transparent);
+  animation: announcementShine 4s ease-in-out infinite;
+}
+
+@keyframes announcementShine {
+  0% { left: -100%; }
+  100% { left: 200%; }
 }
 
 /* ============================================================
    GLASSMORPHISM — Green-tinted panels
    ============================================================ */
 .glass-panel {
-  background: rgba(11, 34, 22, 0.70);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: rgba(8, 24, 16, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.07);
 }
 
 .glass-card {
-  background: rgba(17, 34, 24, 0.85);
+  background: rgba(13, 28, 20, 0.90);
   border: 1px solid rgba(255, 255, 255, 0.07);
-  border-radius: 16px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 20px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(45,222,152,0.03) 0%, transparent 60%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
 }
 
 .glass-card:hover {
-  border-color: rgba(45, 222, 152, 0.25);
-  box-shadow: 0 8px 32px rgba(45, 222, 152, 0.08);
-  transform: translateY(-2px);
+  border-color: rgba(45, 222, 152, 0.28);
+  box-shadow: 0 12px 48px rgba(45, 222, 152, 0.1), 0 0 0 1px rgba(45,222,152,0.08);
+  transform: translateY(-4px);
+}
+
+.glass-card:hover::before {
+  opacity: 1;
 }
 
 .glass-input {
-  background: rgba(7, 20, 13, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(5, 15, 10, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.09);
   color: #f3f4f6;
-  transition: all 0.2s;
-  border-radius: 10px;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 12px;
   padding: 10px 16px;
+  width: 100%;
 }
 
 .glass-input:focus {
-  background: rgba(11, 34, 22, 0.85);
-  border-color: rgba(45, 222, 152, 0.4);
+  background: rgba(8, 24, 16, 0.9);
+  border-color: rgba(45, 222, 152, 0.45);
   outline: none;
-  box-shadow: 0 0 0 3px rgba(45, 222, 152, 0.1);
+  box-shadow: 0 0 0 3px rgba(45, 222, 152, 0.12), 0 4px 20px rgba(0,0,0,0.3);
 }
 
 /* ============================================================
    GLOW BUTTON — Funngro's signature green CTA
    ============================================================ */
 .btn-glow {
-  background-color: #2DDE98;
+  background: linear-gradient(135deg, #2DDE98 0%, #20c97a 100%);
   color: #071210;
   font-weight: 700;
   border-radius: 9999px;
@@ -92,37 +126,70 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  transition: all 0.25s ease;
-  box-shadow: 0 0 24px rgba(45, 222, 152, 0.35);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 28px rgba(45, 222, 152, 0.4), 0 4px 16px rgba(0,0,0,0.3);
   font-family: 'Inter', sans-serif;
   font-size: 14px;
   letter-spacing: 0.01em;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-glow::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, transparent 60%);
+  border-radius: 9999px;
+  opacity: 0;
+  transition: opacity 0.3s;
 }
 
 .btn-glow:hover {
-  background-color: #5ef5b0;
-  box-shadow: 0 0 40px rgba(45, 222, 152, 0.5);
-  transform: translateY(-1px);
+  background: linear-gradient(135deg, #5ef5b0 0%, #2DDE98 100%);
+  box-shadow: 0 0 50px rgba(45, 222, 152, 0.6), 0 8px 24px rgba(0,0,0,0.4);
+  transform: translateY(-2px) scale(1.02);
+}
+
+.btn-glow:hover::before {
+  opacity: 1;
+}
+
+.btn-glow:active {
+  transform: translateY(0) scale(0.98);
 }
 
 .btn-outline-green {
   background: transparent;
   color: #2DDE98;
   font-weight: 600;
-  border: 1.5px solid rgba(45, 222, 152, 0.5);
+  border: 1.5px solid rgba(45, 222, 152, 0.45);
   border-radius: 9999px;
   padding: 11px 24px;
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  transition: all 0.25s ease;
+  transition: all 0.3s ease;
   font-family: 'Inter', sans-serif;
   font-size: 14px;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-outline-green::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(45, 222, 152, 0);
+  transition: background 0.3s ease;
+  border-radius: 9999px;
 }
 
 .btn-outline-green:hover {
   border-color: #2DDE98;
-  background: rgba(45, 222, 152, 0.08);
+  background: rgba(45, 222, 152, 0.1);
+  box-shadow: 0 0 20px rgba(45, 222, 152, 0.15);
+  transform: translateY(-1px);
 }
 
 /* ============================================================
@@ -139,24 +206,24 @@
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 80px;
+  width: 120px;
   z-index: 2;
   pointer-events: none;
 }
 
 .marquee-container::before {
   left: 0;
-  background: linear-gradient(to right, #0B1A14, transparent);
+  background: linear-gradient(to right, #071210, transparent);
 }
 
 .marquee-container::after {
   right: 0;
-  background: linear-gradient(to left, #0B1A14, transparent);
+  background: linear-gradient(to left, #071210, transparent);
 }
 
 .marquee-track {
   display: flex;
-  gap: 48px;
+  gap: 40px;
   animation: marquee 28s linear infinite;
   width: max-content;
 }
@@ -174,39 +241,42 @@
    LIVE PAYOUT TICKER WIDGET
    ============================================================ */
 .ticker-card {
-  background: rgba(9, 22, 15, 0.92);
-  border: 1px solid rgba(45, 222, 152, 0.2);
-  border-radius: 18px;
-  backdrop-filter: blur(20px);
+  background: rgba(6, 18, 12, 0.96);
+  border: 1px solid rgba(45, 222, 152, 0.22);
+  border-radius: 24px;
+  backdrop-filter: blur(24px);
   overflow: hidden;
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(45, 222, 152, 0.08);
+  box-shadow: 
+    0 16px 60px rgba(0, 0, 0, 0.6),
+    0 0 0 1px rgba(45, 222, 152, 0.06),
+    0 0 60px rgba(45,222,152,0.06);
 }
 
 .ticker-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 8px 16px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 10px 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
   font-size: 12px;
-  animation: fadeInRow 0.4s ease-out;
+  animation: fadeInRow 0.5s cubic-bezier(0.4,0,0.2,1);
 }
 
 @keyframes fadeInRow {
-  from { opacity: 0; transform: translateY(-8px); }
+  from { opacity: 0; transform: translateY(-10px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
 /* ============================================================
-   SECTION PILL LABELS  (e.g., "· CHAPTER ONE · FIVE STEPS ·")
+   SECTION PILL LABELS
    ============================================================ */
 .section-pill {
   font-family: 'Inter', sans-serif;
   font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: rgba(45, 222, 152, 0.8);
+  color: rgba(45, 222, 152, 0.85);
   display: flex;
   align-items: center;
   gap: 8px;
@@ -225,46 +295,92 @@
   font-family: 'Inter', sans-serif;
   font-size: 11px;
   font-weight: 800;
-  color: rgba(45, 222, 152, 0.7);
+  color: rgba(45, 222, 152, 0.8);
   letter-spacing: 0.05em;
-  border: 1.5px dashed rgba(45, 222, 152, 0.4);
+  border: 1.5px solid rgba(45, 222, 152, 0.35);
   border-radius: 50%;
-  width: 36px;
-  height: 36px;
+  width: 38px;
+  height: 38px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  background: rgba(45,222,152,0.06);
+  box-shadow: 0 0 16px rgba(45,222,152,0.1);
+  transition: all 0.3s ease;
+}
+
+.step-number:hover {
+  background: rgba(45,222,152,0.12);
+  box-shadow: 0 0 24px rgba(45,222,152,0.2);
 }
 
 /* ============================================================
    CAMPAIGN TYPE CARDS
    ============================================================ */
 .campaign-card {
-  background: rgba(17, 34, 24, 0.8);
+  background: rgba(13, 28, 20, 0.85);
   border: 1px solid rgba(255, 255, 255, 0.07);
-  border-radius: 14px;
-  padding: 20px;
-  transition: all 0.3s ease;
+  border-radius: 18px;
+  padding: 24px;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: default;
+  position: relative;
+  overflow: hidden;
+}
+
+.campaign-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(45,222,152,0.3), transparent);
+  opacity: 0;
+  transition: opacity 0.35s;
 }
 
 .campaign-card:hover {
-  border-color: rgba(45, 222, 152, 0.3);
-  background: rgba(22, 44, 32, 0.9);
-  box-shadow: 0 4px 20px rgba(45, 222, 152, 0.06);
-  transform: translateY(-2px);
+  border-color: rgba(45, 222, 152, 0.25);
+  background: rgba(18, 40, 28, 0.95);
+  box-shadow: 0 8px 32px rgba(45, 222, 152, 0.08), 0 2px 8px rgba(0,0,0,0.4);
+  transform: translateY(-3px);
+}
+
+.campaign-card:hover::before {
+  opacity: 1;
 }
 
 /* ============================================================
    STAT GRID CARDS
    ============================================================ */
 .stat-card {
-  background: rgba(17, 34, 24, 0.9);
+  background: rgba(13, 28, 20, 0.9);
   border: 1px solid rgba(255, 255, 255, 0.07);
-  border-radius: 14px;
-  padding: 24px;
+  border-radius: 18px;
+  padding: 28px 24px;
   text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(45,222,152,0.3), transparent);
+}
+
+.stat-card:hover {
+  border-color: rgba(45,222,152,0.2);
+  box-shadow: 0 8px 32px rgba(45,222,152,0.08);
+  transform: translateY(-2px);
 }
 
 /* ============================================================
@@ -278,17 +394,17 @@
 }
 
 .cs-table th {
-  background: rgba(17, 34, 24, 0.95);
+  background: rgba(13, 28, 20, 0.98);
   color: #9CA3AF;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   font-size: 10px;
-  padding: 12px 20px;
+  padding: 14px 22px;
 }
 
 .cs-table td {
-  padding: 14px 20px;
+  padding: 16px 22px;
   border-top: 1px solid rgba(255,255,255,0.05);
   color: #e5e7eb;
 }
@@ -298,15 +414,15 @@
 }
 
 /* ============================================================
-   CUSTOM SCROLLBAR — dark-green theme
+   CUSTOM SCROLLBAR
    ============================================================ */
 ::-webkit-scrollbar { width: 6px; height: 6px; }
-::-webkit-scrollbar-track { background: #071210; }
+::-webkit-scrollbar-track { background: #050e0a; }
 ::-webkit-scrollbar-thumb { background: #1a3828; border-radius: 4px; }
 ::-webkit-scrollbar-thumb:hover { background: #2DDE98; }
 
 /* ============================================================
-   SHIMMER — Loading skeleton in dark-green
+   SHIMMER — Loading skeleton
    ============================================================ */
 @keyframes shimmer {
   0%   { background-position: -200% 0; }
@@ -314,17 +430,18 @@
 }
 
 .shimmer {
-  background: linear-gradient(90deg, #112218 25%, #1a3828 50%, #112218 75%);
+  background: linear-gradient(90deg, #0d2218 25%, #1a3828 50%, #0d2218 75%);
   background-size: 200% 100%;
   animation: shimmer 1.5s infinite;
 }
 
 /* ============================================================
-   HERO HEADLINE — italic green accent word (matches funngro.com)
+   HERO HEADLINE — italic green accent
    ============================================================ */
 .headline-accent {
   font-style: italic;
   color: #2DDE98;
+  position: relative;
 }
 
 /* ============================================================
@@ -354,11 +471,11 @@
 .step-connector::before {
   content: '';
   position: absolute;
-  left: 17px;
-  top: 38px;
-  bottom: -20px;
+  left: 18px;
+  top: 42px;
+  bottom: -16px;
   width: 1.5px;
-  background: linear-gradient(to bottom, rgba(45,222,152,0.3), rgba(45,222,152,0.05));
+  background: linear-gradient(to bottom, rgba(45,222,152,0.35), rgba(45,222,152,0.03));
 }
 
 /* ============================================================
@@ -368,18 +485,19 @@
   display: inline-block;
   padding: 4px 12px;
   border-radius: 9999px;
-  background: rgba(17, 34, 24, 0.8);
-  border: 1px solid rgba(45, 222, 152, 0.2);
+  background: rgba(13, 28, 20, 0.85);
+  border: 1px solid rgba(45, 222, 152, 0.18);
   font-size: 11px;
   font-weight: 600;
   color: #9CA3AF;
   font-family: 'Inter', sans-serif;
-  transition: all 0.2s;
+  transition: all 0.25s ease;
 }
 
 .tag-pill:hover {
-  border-color: rgba(45, 222, 152, 0.5);
+  border-color: rgba(45, 222, 152, 0.45);
   color: #2DDE98;
+  background: rgba(45,222,152,0.06);
 }
 
 /* ============================================================
@@ -389,38 +507,46 @@
   color: #6B7280;
   font-size: 13px;
   font-family: 'Inter', sans-serif;
-  transition: color 0.2s;
-  display: block;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
   margin-bottom: 10px;
 }
 
-.footer-link:hover { color: #2DDE98; }
+.footer-link:hover {
+  color: #2DDE98;
+  transform: translateX(3px);
+}
 
 /* ============================================================
-   SOCIAL ICON BUTTON
+   SOCIAL ICON BUTTON — Real SVG icons
    ============================================================ */
 .social-btn {
-  width: 36px;
-  height: 36px;
-  border-radius: 9999px;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
   border: 1px solid rgba(255,255,255,0.08);
   display: flex;
   align-items: center;
   justify-content: center;
   color: #6B7280;
   font-size: 14px;
-  transition: all 0.2s;
+  transition: all 0.25s cubic-bezier(0.4,0,0.2,1);
   text-decoration: none;
+  background: rgba(13,28,20,0.6);
 }
 
 .social-btn:hover {
-  border-color: rgba(45, 222, 152, 0.4);
+  border-color: rgba(45, 222, 152, 0.45);
   color: #2DDE98;
-  background: rgba(45, 222, 152, 0.07);
+  background: rgba(45, 222, 152, 0.08);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(45,222,152,0.12);
 }
 
 /* ============================================================
-   BOUNCE-SLOW ANIMATION (legacy compatibility)
+   BOUNCE-SLOW ANIMATION
    ============================================================ */
 @keyframes bounceSlow {
   0%, 100% { transform: translateY(0); }
@@ -429,4 +555,208 @@
 
 .animate-bounce-slow {
   animation: bounceSlow 3s ease-in-out infinite;
+}
+
+/* ============================================================
+   FLOATING PARTICLES BACKGROUND
+   ============================================================ */
+.particles-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(45, 222, 152, 0.15);
+  animation: particleFloat linear infinite;
+}
+
+@keyframes particleFloat {
+  0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(-100px) rotate(720deg); opacity: 0; }
+}
+
+/* ============================================================
+   HERO GLOW ORB
+   ============================================================ */
+.glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  animation: orbPulse 8s ease-in-out infinite;
+}
+
+.glow-orb-primary {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(45,222,152,0.08) 0%, transparent 70%);
+  top: -200px;
+  right: -100px;
+}
+
+.glow-orb-secondary {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(45,222,152,0.05) 0%, transparent 70%);
+  bottom: -100px;
+  left: -50px;
+  animation-delay: -4s;
+}
+
+@keyframes orbPulse {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50%       { transform: scale(1.1); opacity: 1; }
+}
+
+/* ============================================================
+   GRADIENT TEXT
+   ============================================================ */
+.gradient-text {
+  background: linear-gradient(135deg, #2DDE98 0%, #5ef5b0 50%, #2DDE98 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textGradient 3s ease-in-out infinite;
+}
+
+@keyframes textGradient {
+  0% { background-position: 0% center; }
+  50% { background-position: 100% center; }
+  100% { background-position: 0% center; }
+}
+
+/* ============================================================
+   APP STORE BADGES
+   ============================================================ */
+.app-badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(13,28,20,0.8);
+  transition: all 0.3s ease;
+  text-decoration: none;
+  backdrop-filter: blur(8px);
+}
+
+.app-badge:hover {
+  border-color: rgba(45,222,152,0.35);
+  background: rgba(18,40,28,0.9);
+  box-shadow: 0 4px 20px rgba(45,222,152,0.12);
+  transform: translateY(-2px);
+}
+
+/* ============================================================
+   NAVBAR GLOW LINE
+   ============================================================ */
+.nav-scrolled {
+  background: rgba(7, 18, 12, 0.96) !important;
+  backdrop-filter: blur(24px) !important;
+  border-bottom: 1px solid rgba(45,222,152,0.1) !important;
+  box-shadow: 0 4px 30px rgba(0,0,0,0.4), 0 1px 0 rgba(45,222,152,0.08) !important;
+}
+
+/* ============================================================
+   CARD HOVER SHINE EFFECT
+   ============================================================ */
+.shine-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.shine-card::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 40%;
+  height: 200%;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(45,222,152,0.06) 50%,
+    transparent 60%
+  );
+  transform: rotate(25deg);
+  transition: left 0.6s ease;
+  pointer-events: none;
+}
+
+.shine-card:hover::after {
+  left: 120%;
+}
+
+/* ============================================================
+   PROGRESS BAR ANIMATION
+   ============================================================ */
+@keyframes progressFill {
+  from { width: 0; }
+  to { width: var(--target-width); }
+}
+
+/* ============================================================
+   NEON BORDER ANIMATION
+   ============================================================ */
+@keyframes neonBorder {
+  0%, 100% { box-shadow: 0 0 8px rgba(45,222,152,0.3); }
+  50%       { box-shadow: 0 0 20px rgba(45,222,152,0.5), 0 0 40px rgba(45,222,152,0.2); }
+}
+
+.neon-pulse {
+  animation: neonBorder 2s ease-in-out infinite;
+}
+
+/* ============================================================
+   GRID BACKGROUND PATTERN
+   ============================================================ */
+.grid-bg {
+  background-image: 
+    linear-gradient(rgba(45,222,152,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(45,222,152,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* ============================================================
+   TIER BADGE
+   ============================================================ */
+.tier-gold { color: #f59e0b; }
+.tier-silver { color: #94a3b8; }
+.tier-bronze { color: #b45309; }
+
+/* ============================================================
+   FLOATING ANIMATION
+   ============================================================ */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* ============================================================
+   PULSE RING
+   ============================================================ */
+@keyframes pulseRing {
+  0% { transform: scale(0.8); opacity: 1; }
+  100% { transform: scale(2); opacity: 0; }
+}
+
+.pulse-ring::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid #2DDE98;
+  animation: pulseRing 1.5s ease-out infinite;
 }

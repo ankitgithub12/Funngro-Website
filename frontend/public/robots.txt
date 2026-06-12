@@ -1,0 +1,43 @@
+# Funngro robots.txt
+# https://funngro.com/robots.txt
+
+# ── Allow all crawlers (default) ────────────────────────
+User-agent: *
+Allow: /
+
+# Disallow admin / API routes from being indexed
+Disallow: /api/
+Disallow: /admin/
+Disallow: /_next/
+Disallow: /static/chunks/
+
+# ── Google-specific ─────────────────────────────────────
+User-agent: Googlebot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+
+# Allow Google to crawl images and JS
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Googlebot-Mobile
+Allow: /
+
+# ── Bing ────────────────────────────────────────────────
+User-agent: Bingbot
+Allow: /
+Disallow: /api/
+
+# ── Crawl delay for heavy bots ───────────────────────────
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
+
+User-agent: MJ12bot
+Disallow: /
+
+# ── Sitemap location ─────────────────────────────────────
+Sitemap: https://funngro.com/sitemap.xml
