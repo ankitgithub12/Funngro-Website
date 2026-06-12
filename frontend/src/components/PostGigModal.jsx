@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { X, Plus, Calendar, Coins, Settings, Briefcase, AlignLeft } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
-export default function PostGigModal({ onClose, onSubmitSuccess }) {
+export default function PostGigModal({ onClose, onSubmitSuccess, currentUser }) {
   const [formData, setFormData] = useState({
     title: '',
-    company: '',
+    company: currentUser?.companyName || '',
     category: 'Design',
     budget: '',
     duration: '',
@@ -136,10 +136,11 @@ export default function PostGigModal({ onClose, onSubmitSuccess }) {
                 id="company"
                 name="company"
                 required
+                disabled={!!currentUser?.companyName}
                 value={formData.company}
                 onChange={handleChange}
                 placeholder="E.g. Acme Innovations"
-                className="w-full px-4 py-2.5 rounded-xl text-sm glass-input"
+                className={`w-full px-4 py-2.5 rounded-xl text-sm glass-input ${currentUser?.companyName ? 'opacity-65 cursor-not-allowed' : ''}`}
               />
             </div>
           </div>

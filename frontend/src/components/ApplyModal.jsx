@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
-import { X, Send, Award, Mail, User, Info, Link as LinkIcon, Edit3 } from 'lucide-react';
+import { X, Send, Award, Mail, User, Info, Link as LinkIcon, Edit3, Lock } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
-export default function ApplyModal({ gig, onClose, onSubmitSuccess }) {
+export default function ApplyModal({ gig, onClose, onSubmitSuccess, currentUser, onOpenAuth }) {
   const [formData, setFormData] = useState({
-    teenName: '',
-    teenEmail: '',
-    age: '',
-    skills: '',
-    portfolioLink: '',
-    pitch: ''
+    teenName: currentUser?.name || '',
+    teenEmail: currentUser?.email || '',
+    age: currentUser?.age || '',
+    skills: currentUser?.skills || '',
+    portfolioLink: currentUser?.portfolioLink || '',
+    pitch: currentUser?.pitch || ''
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -73,6 +73,66 @@ export default function ApplyModal({ gig, onClose, onSubmitSuccess }) {
       setLoading(false);
     }
   };
+
+  if (!currentUser) {
+    return (
+      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-brand-dark-bg/80 backdrop-blur-sm">
+        <div className="relative w-full max-w-md rounded-2xl border border-brand-green/20 bg-[#120f24]/95 p-8 shadow-2xl text-center">
+          <button 
+            onClick={onClose} 
+            className="absolute right-4 top-4 text-slate-400 hover:text-white rounded-lg p-1 hover:bg-brand-dark-surface transition-colors"
+            aria-label="Close modal"
+          >
+            <X className="h-5 w-5" />
+          </button>
+          <User className="h-14 w-14 text-brand-green mx-auto mb-4 animate-pulse" />
+          <h3 className="text-xl font-bold text-white mb-2">Teen Sign In Required</h3>
+          <p className="text-xs text-slate-400 mb-6 leading-relaxed">You must be logged in as a Teen to apply for this brand campaign gig.</p>
+          <div className="flex gap-3 justify-center">
+            <button 
+              onClick={onClose} 
+              className="px-5 py-2.5 rounded-xl border border-slate-700 hover:border-slate-500 text-slate-300 hover:text-white text-xs font-semibold"
+            >
+              Cancel
+            </button>
+            <button 
+              onClick={() => { onClose(); onOpenAuth(); }} 
+              className="btn-glow px-6 py-2.5 text-xs"
+            >
+              Sign In / Join
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (currentUser.role !== 'teen') {
+    return (
+      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-brand-dark-bg/80 backdrop-blur-sm">
+        <div className="relative w-full max-w-md rounded-2xl border border-brand-green/20 bg-[#120f24]/95 p-8 shadow-2xl text-center">
+          <button 
+            onClick={onClose} 
+            className="absolute right-4 top-4 text-slate-400 hover:text-white rounded-lg p-1 hover:bg-brand-dark-surface transition-colors"
+            aria-label="Close modal"
+          >
+            <X className="h-5 w-5" />
+          </button>
+          <Lock className="h-14 w-14 text-yellow-500 mx-auto mb-4" />
+          <h3 className="text-xl font-bold text-white mb-2">Access Restricted</h3>
+          <p className="text-xs text-slate-400 mb-6 leading-relaxed">Employer / Company profiles are not authorized to apply for campaigns. Please log out and sign in with a Teen account.</p>
+          <div className="flex justify-center">
+            <button 
+              onClick={onClose} 
+              className="btn-glow px-6 py-2.5 text-xs"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-brand-dark-bg/80 backdrop-blur-sm">

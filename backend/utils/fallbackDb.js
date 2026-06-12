@@ -15,6 +15,7 @@ const ensureFileExists = () => {
 
   if (!fs.existsSync(DATA_FILE)) {
     const defaultData = {
+      users: [],
       gigs: [
         {
           _id: "gig_mock_1",
@@ -108,7 +109,9 @@ const ensureFileExists = () => {
 const readData = () => {
   ensureFileExists();
   const rawData = fs.readFileSync(DATA_FILE, 'utf-8');
-  return JSON.parse(rawData);
+  const data = JSON.parse(rawData);
+  if (!data.users) data.users = [];
+  return data;
 };
 
 const writeData = (data) => {
@@ -117,6 +120,32 @@ const writeData = (data) => {
 };
 
 export const fallbackDb = {
+  getUsers: () => {
+    return readData().users;
+  },
+
+  createUser: (userData) => {
+    const data = readData();
+    const newUser = {
+      _id: `user_fallback_${Date.now()}`,
+      ...userData,
+      createdAt: new Date().toISOString()
+    };
+    data.users.push(newUser);
+    writeData(data);
+    return newUser;
+  },
+
+  findUserByEmail: (email) => {
+    const data = readData();
+    return data.users.find(u => u.email.toLowerCase() === email.toLowerCase()) || null;
+  },
+
+  findUserById: (id) => {
+    const data = readData();
+    return data.users.find(u => u._id === id) || null;
+  },
+
   getGigs: () => {
     return readData().gigs;
   },

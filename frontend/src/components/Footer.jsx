@@ -20,42 +20,42 @@ const SOCIAL_LINKS = [
 /* ─── Footer link structure ────────────────────────────── */
 const FOOTER_LINKS = {
   Earn: [
-    { label: 'How it works',      href: '#',  tab: 'teen'    },
-    { label: 'Brand Campaigns',   href: '#'                  },
-    { label: 'Sampling',          href: '#'                  },
-    { label: 'Referrals',         href: '#'                  },
-    { label: 'Influencer Briefs', href: '#'                  },
-    { label: 'Content Work',      href: '#'                  },
-    { label: 'App Testing',       href: '#'                  },
-    { label: 'Surveys',           href: '#'                  },
-    { label: 'SheLancer',         href: '#'                  },
-    { label: 'Arcade',            href: '#'                  },
+    { label: 'How it works',      href: '#', tab: 'teen' },
+    { label: 'Brand Campaigns',   href: '#', anchor: 'gigs-section', anchorTab: 'teen' },
+    { label: 'Sampling',          href: '#', anchor: 'gigs-section', anchorTab: 'teen' },
+    { label: 'Referrals',         href: '#', anchor: 'gigs-section', anchorTab: 'teen' },
+    { label: 'Influencer Briefs', href: '#', anchor: 'gigs-section', anchorTab: 'teen' },
+    { label: 'Content Work',      href: '#', anchor: 'gigs-section', anchorTab: 'teen' },
+    { label: 'App Testing',       href: '#', anchor: 'gigs-section', anchorTab: 'teen' },
+    { label: 'Surveys',           href: '#', anchor: 'gigs-section', anchorTab: 'teen' },
+    { label: 'SheLancer',         href: '#', tab: 'sheLancer' },
+    { label: 'Arcade',            href: '#', tab: 'arcade' },
   ],
   Brands: [
-    { label: 'Work with us',     href: '#',  tab: 'company' },
-    { label: 'Campaign Types',   href: '#'                  },
-    { label: 'Fintech Campaigns',href: '#'                  },
-    { label: 'D2C & FMCG',      href: '#'                  },
-    { label: 'Case Studies',     href: '#'                  },
-    { label: 'Pricing',          href: '#'                  },
-    { label: 'Contact',          href: '#'                  },
+    { label: 'Work with us',     href: '#', tab: 'company' },
+    { label: 'Campaign Types',   href: '#', anchor: 'campaigns-heading', anchorTab: 'company' },
+    { label: 'Fintech Campaigns',href: '#', anchor: 'case-study-heading', anchorTab: 'company' },
+    { label: 'D2C & FMCG',      href: '#', anchor: 'campaigns-heading', anchorTab: 'company' },
+    { label: 'Case Studies',     href: '#', anchor: 'case-study-heading', anchorTab: 'company' },
+    { label: 'Pricing',          href: '#', anchor: 'brands-cta-heading', anchorTab: 'company' },
+    { label: 'Contact',          href: '#', anchor: 'brands-cta-heading', anchorTab: 'company' },
   ],
   Company: [
-    { label: 'About Funngro',    href: '#'  },
-    { label: 'Stories',          href: '#'  },
-    { label: 'Blog',             href: '#'  },
-    { label: 'Careers',          href: '#'  },
-    { label: 'Press',            href: '#'  },
-    { label: 'Shark Tank India', href: '#'  },
+    { label: 'About Funngro',    href: '#', tab: 'about' },
+    { label: 'Stories',          href: '#', tab: 'stories' },
+    { label: 'Blog',             href: '#', tab: 'blog' },
+    { label: 'Careers',          href: '#', tab: 'about' },
+    { label: 'Press',            href: '#', tab: 'about' },
+    { label: 'Shark Tank India', href: '#', tab: 'about' },
     { label: 'Instagram',        href: 'https://www.instagram.com/fun.n.gro' },
   ],
   Legal: [
-    { label: 'Terms of Service', href: '#' },
-    { label: 'Privacy Policy',   href: '#' },
-    { label: 'Cookie Policy',    href: '#' },
-    { label: 'DPDP Compliance',  href: '#' },
-    { label: 'Grievance Officer',href: '#' },
-    { label: 'Refund Policy',    href: '#' },
+    { label: 'Terms of Service', href: '#', tab: 'about' },
+    { label: 'Privacy Policy',   href: '#', tab: 'about' },
+    { label: 'Cookie Policy',    href: '#', tab: 'about' },
+    { label: 'DPDP Compliance',  href: '#', tab: 'about' },
+    { label: 'Grievance Officer',href: '#', tab: 'about' },
+    { label: 'Refund Policy',    href: '#', tab: 'about' },
   ],
 };
 
@@ -165,20 +165,31 @@ export default function Footer({ setActiveTab }) {
                 {t(HEADING_KEYS[heading])}
               </h3>
               <nav aria-label={`${heading} links`}>
-                {links.map(({ label, href, tab }) => (
+                {links.map((link) => (
                   <a
-                    key={label}
-                    href={href}
-                    target={href.startsWith('http') ? '_blank' : undefined}
-                    rel={href.startsWith('http') ? 'noreferrer noopener' : undefined}
+                    key={link.label}
+                    href={link.href}
+                    target={link.href.startsWith('http') ? '_blank' : undefined}
+                    rel={link.href.startsWith('http') ? 'noreferrer noopener' : undefined}
                     className="footer-link"
-                    onClick={tab ? (e) => {
-                      e.preventDefault();
-                      setActiveTab(tab);
-                      window.scrollTo({ top: 0, behavior: 'smooth' });
-                    } : undefined}
+                    onClick={(e) => {
+                      if (!link.href.startsWith('http')) {
+                        e.preventDefault();
+                        if (link.tab) {
+                          setActiveTab(link.tab);
+                          window.scrollTo({ top: 0, behavior: 'smooth' });
+                        } else if (link.anchor) {
+                          if (link.anchorTab) setActiveTab(link.anchorTab);
+                          setTimeout(() => {
+                            document.getElementById(link.anchor)?.scrollIntoView({ behavior: 'smooth' });
+                          }, 100);
+                        } else {
+                          window.scrollTo({ top: 0, behavior: 'smooth' });
+                        }
+                      }
+                    }}
                   >
-                    {label}
+                    {link.label}
                   </a>
                 ))}
               </nav>

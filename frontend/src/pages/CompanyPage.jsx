@@ -80,7 +80,7 @@ const ENGAGEMENT = [
 ];
 
 /* ─── Component ────────────────────────────────── */
-export default function CompanyPage() {
+export default function CompanyPage({ currentUser, onOpenAuth }) {
   const [applications, setApplications] = useState([]);
   const [gigs, setGigs] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -106,6 +106,26 @@ export default function CompanyPage() {
     }
   };
 
+  const handleOpenPostModal = () => {
+    if (!currentUser) {
+      onOpenAuth();
+    } else if (currentUser.role !== 'company') {
+      alert("You must be logged in as a Company to post campaigns.");
+    } else {
+      setShowPostModal(true);
+    }
+  };
+
+  const handleToggleDashboard = () => {
+    if (!currentUser) {
+      onOpenAuth();
+    } else if (currentUser.role !== 'company') {
+      alert("You must be logged in as a Company to view the campaign dashboard.");
+    } else {
+      setShowDashboard(!showDashboard);
+    }
+  };
+
   const handlePostSuccess = () => {
     setShowPostModal(false);
     setShowSuccessToast(true);
@@ -116,10 +136,20 @@ export default function CompanyPage() {
   const handleApplicationStatusUpdate = updated =>
     setApplications(prev => prev.map(a => a._id === updated._id ? updated : a));
 
-  const filteredApps = applications.filter(a => activeFilter === 'all' || a.status === activeFilter);
-  const totalGigs = gigs.length;
-  const pendingApps = applications.filter(a => a.status === 'pending').length;
-  const approvedApps = applications.filter(a => a.status === 'approved').length;
+  const companyGigs = currentUser && currentUser.role === 'company'
+    ? gigs.filter(g => g.company.toLowerCase() === currentUser.companyName.toLowerCase())
+    : [];
+
+  const companyGigIds = companyGigs.map(g => g._id);
+
+  const companyApps = currentUser && currentUser.role === 'company'
+    ? applications.filter(a => companyGigIds.includes(a.gigId))
+    : [];
+
+  const filteredApps = companyApps.filter(a => activeFilter === 'all' || a.status === activeFilter);
+  const totalGigs = companyGigs.length;
+  const pendingApps = companyApps.filter(a => a.status === 'pending').length;
+  const approvedApps = companyApps.filter(a => a.status === 'approved').length;
 
   return (
     <div>
@@ -169,7 +199,7 @@ export default function CompanyPage() {
 
           <div className="flex flex-wrap gap-4">
             <button
-              onClick={() => setShowPostModal(true)}
+              onClick={handleOpenPostModal}
               className="btn-glow text-base px-8 py-4"
               aria-label="Get in touch with Funngro to start a brand campaign"
             >
@@ -312,7 +342,7 @@ export default function CompanyPage() {
                 The results outperformed every prior digital channel — at a fraction of the cost.
               </p>
               <button
-                onClick={() => setShowPostModal(true)}
+                onClick={handleOpenPostModal}
                 className="btn-outline-green"
                 aria-label="Start a campaign similar to this fintech case study"
               >
@@ -366,7 +396,7 @@ export default function CompanyPage() {
           </p>
           <div className="flex flex-wrap gap-4 justify-center mb-6">
             <button
-              onClick={() => setShowPostModal(true)}
+              onClick={handleOpenPostModal}
               className="btn-glow text-base px-8 py-4"
               aria-label="Get in touch with Funngro for brand campaigns"
             >
@@ -392,7 +422,7 @@ export default function CompanyPage() {
       <section className="border-t border-white/06 bg-brand-dark-card/30" aria-label="Campaign management dashboard">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <button
-            onClick={() => setShowDashboard(!showDashboard)}
+            onClick={handleToggleDashboard}
             className="w-full flex items-center justify-between py-5 text-left"
             aria-expanded={showDashboard}
             aria-controls="dashboard-panel"
@@ -429,7 +459,7 @@ export default function CompanyPage() {
               {/* Post button */}
               <div className="mb-8">
                 <button
-                  onClick={() => setShowPostModal(true)}
+                  onClick={handleOpenPostModal}
                   className="btn-glow"
                   aria-label="Post a new brand campaign"
                 >
@@ -531,6 +561,7 @@ export default function CompanyPage() {
         <PostGigModal
           onClose={() => setShowPostModal(false)}
           onSubmitSuccess={handlePostSuccess}
+          currentUser={currentUser}
         />
       )}
     </div>

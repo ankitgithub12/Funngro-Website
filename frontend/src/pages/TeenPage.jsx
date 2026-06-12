@@ -7,6 +7,7 @@ import StepCard from '../components/StepCard';
 import GigCard from '../components/GigCard';
 import ApplyModal from '../components/ApplyModal';
 import GlassCard from '../components/GlassCard';
+import ShowcaseSection from '../components/ShowcaseSection';
 
 /* ─── Static data (numbers don't need translation) ─── */
 const STATS_DATA = [
@@ -42,7 +43,7 @@ const STEP_TAGS = {
   ],
 };
 
-export default function TeenPage() {
+export default function TeenPage({ currentUser, onOpenAuth }) {
   const { t } = useTranslation();
   const [gigs, setGigs]                         = useState([]);
   const [loading, setLoading]                   = useState(true);
@@ -304,6 +305,9 @@ export default function TeenPage() {
         </div>
       </section>
 
+      {/* Bento Grid Gallery Showcase */}
+      <ShowcaseSection />
+
       {/* ══════════════════════════════════════════════
           GIGS BOARD (live backend data)
          ══════════════════════════════════════════════ */}
@@ -426,6 +430,8 @@ export default function TeenPage() {
           gig={selectedGigForApply}
           onClose={() => setSelectedGigForApply(null)}
           onSubmitSuccess={handleApplySuccess}
+          currentUser={currentUser}
+          onOpenAuth={onOpenAuth}
         />
       )}
     </div>

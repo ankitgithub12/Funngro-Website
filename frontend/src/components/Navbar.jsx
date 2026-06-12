@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { LANG_LABELS } from '../i18n/index.js';
 import { GooglePlayIcon } from './BrandIcons.jsx';
+import { LogOut, User } from 'lucide-react';
 
 /* ── Funngro "F" logo SVG ─────────────────────────────── */
 function FunngroLogo({ size = 34 }) {
@@ -58,7 +59,7 @@ function LangSwitcher() {
 }
 
 /* ── Main Navbar ──────────────────────────────────────── */
-export default function Navbar({ activeTab, setActiveTab }) {
+export default function Navbar({ activeTab, setActiveTab, currentUser, onLogout, onOpenAuth }) {
   const { t, i18n } = useTranslation();
   const [scrolled, setScrolled]     = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -70,13 +71,13 @@ export default function Navbar({ activeTab, setActiveTab }) {
   }, []);
 
   const navLinks = [
-    { labelKey: 'nav.earn',       tab: 'teen'    },
-    { labelKey: 'nav.stories',    tab: null      },
-    { labelKey: 'nav.forBrands',  tab: 'company' },
-    { labelKey: 'nav.arcade',     tab: null      },
-    { labelKey: 'nav.sheLancer',  tab: null      },
-    { labelKey: 'nav.about',      tab: null      },
-    { labelKey: 'nav.blog',       tab: null      },
+    { labelKey: 'nav.earn',       tab: 'teen'      },
+    { labelKey: 'nav.stories',    tab: 'stories'   },
+    { labelKey: 'nav.forBrands',  tab: 'company'   },
+    { labelKey: 'nav.arcade',     tab: 'arcade'    },
+    { labelKey: 'nav.sheLancer',  tab: 'sheLancer' },
+    { labelKey: 'nav.about',      tab: 'about'     },
+    { labelKey: 'nav.blog',       tab: 'blog'      },
   ];
 
   // Mobile lang switcher
@@ -144,19 +145,13 @@ export default function Navbar({ activeTab, setActiveTab }) {
               {navLinks.map(({ labelKey, tab }) => (
                 <button
                   key={labelKey}
-                  onClick={() => tab && setActiveTab(tab)}
-                  className={`px-3.5 py-2 rounded-xl text-[13px] font-medium transition-all duration-200 ${
-                    (tab === 'teen'    && activeTab === 'teen') ||
-                    (tab === 'company' && activeTab === 'company')
-                      ? 'text-[#2DDE98] font-semibold bg-[#2DDE98]/[0.08]'
+                  onClick={() => setActiveTab(tab)}
+                  className={`px-3 py-1.5 rounded-xl text-[12px] font-semibold transition-all duration-200 ${
+                    activeTab === tab
+                      ? 'text-[#2DDE98] font-bold bg-[#2DDE98]/[0.08]'
                       : 'text-slate-400 hover:text-slate-200 hover:bg-white/[0.04]'
-                  } ${!tab ? 'opacity-50 cursor-default' : ''}`}
-                  aria-current={
-                    (tab === 'teen'    && activeTab === 'teen') ||
-                    (tab === 'company' && activeTab === 'company')
-                      ? 'page' : undefined
-                  }
-                  aria-disabled={!tab}
+                  }`}
+                  aria-current={activeTab === tab ? 'page' : undefined}
                 >
                   {t(labelKey)}
                 </button>
@@ -164,21 +159,40 @@ export default function Navbar({ activeTab, setActiveTab }) {
             </div>
 
             {/* Right controls */}
-            <div className="flex items-center gap-2 flex-shrink-0">
+            <div className="flex items-center gap-3 flex-shrink-0">
               {/* Language switcher */}
               <LangSwitcher />
 
-              {/* Download CTA */}
-              <a
-                href="https://play.google.com/store/apps/details?id=com.wishbanc.funngro"
-                target="_blank"
-                rel="noreferrer"
-                className="btn-glow text-[12px] px-4 py-2 hidden sm:flex items-center gap-2"
-                aria-label="Download Funngro app on Google Play"
-              >
-                <GooglePlayIcon size={16} />
-                <span>{t('nav.download')}</span>
-              </a>
+              {/* Authentication profile / login */}
+              {currentUser ? (
+                <div className="relative flex items-center gap-2.5">
+                  <div className="hidden sm:flex flex-col items-end text-right">
+                    <span className="text-[11px] font-bold text-white leading-tight flex items-center gap-1">
+                      <User className="h-3 w-3 text-brand-green" />
+                      {currentUser.name}
+                    </span>
+                    <span className="text-[8px] font-bold text-brand-green/80 uppercase tracking-widest leading-none">
+                      {currentUser.role === 'teen' ? 'Teen' : 'Company'}
+                    </span>
+                  </div>
+                  <button
+                    onClick={onLogout}
+                    className="btn-outline-green text-[10px] px-3.5 py-1.5 flex items-center gap-1"
+                    aria-label="Logout"
+                  >
+                    <LogOut className="h-3 w-3" />
+                    <span className="hidden md:inline">Sign Out</span>
+                  </button>
+                </div>
+              ) : (
+                <button
+                  onClick={onOpenAuth}
+                  className="btn-glow text-[11px] px-4 py-2"
+                  aria-label="Sign In"
+                >
+                  Sign In
+                </button>
+              )}
 
               {/* Mobile hamburger */}
               <button
@@ -233,28 +247,43 @@ export default function Navbar({ activeTab, setActiveTab }) {
             {navLinks.map(({ labelKey, tab }) => (
               <button
                 key={labelKey}
-                onClick={() => { tab && setActiveTab(tab); setMobileOpen(false); }}
+                onClick={() => { setActiveTab(tab); setMobileOpen(false); }}
                 className={`flex w-full items-center text-left px-4 py-3 rounded-xl text-sm font-medium transition-colors mb-1 ${
-                  (tab === 'teen'    && activeTab === 'teen') ||
-                  (tab === 'company' && activeTab === 'company')
+                  activeTab === tab
                     ? 'text-[#2DDE98] font-semibold bg-[#2DDE98]/[0.08] border border-[#2DDE98]/15'
                     : 'text-slate-400 hover:text-slate-200 hover:bg-white/[0.03]'
-                } ${!tab ? 'opacity-50 cursor-default' : ''}`}
-                aria-disabled={!tab}
+                }`}
               >
                 {t(labelKey)}
               </button>
             ))}
 
-            <a
-              href="https://play.google.com/store/apps/details?id=com.wishbanc.funngro"
-              target="_blank"
-              rel="noreferrer"
-              className="btn-glow mt-4 w-full justify-center"
-            >
-              <GooglePlayIcon size={16} />
-              {t('nav.download')}
-            </a>
+            {currentUser ? (
+              <div className="mt-4 p-4 border border-white/5 rounded-xl bg-brand-dark-bg/50 flex flex-col gap-3">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-brand-green/10 flex items-center justify-center font-display font-bold text-brand-green">
+                    {currentUser.name[0]}
+                  </div>
+                  <div>
+                    <span className="block text-sm font-bold text-white">{currentUser.name}</span>
+                    <span className="block text-[10px] text-brand-green uppercase font-bold tracking-wider">{currentUser.role}</span>
+                  </div>
+                </div>
+                <button
+                  onClick={() => { onLogout(); setMobileOpen(false); }}
+                  className="btn-outline-green w-full justify-center py-2.5 text-xs"
+                >
+                  Sign Out
+                </button>
+              </div>
+            ) : (
+              <button
+                onClick={() => { onOpenAuth(); setMobileOpen(false); }}
+                className="btn-glow mt-4 w-full justify-center text-xs"
+              >
+                Sign In
+              </button>
+            )}
           </div>
         )}
       </nav>

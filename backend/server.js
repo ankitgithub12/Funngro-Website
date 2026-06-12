@@ -5,6 +5,7 @@ import dotenv from 'dotenv';
 import { connectDB } from './config/db.js';
 import gigRoutes from './routes/gigRoutes.js';
 import applicationRoutes from './routes/applicationRoutes.js';
+import authRoutes from './routes/authRoutes.js';
 
 dotenv.config();
 
@@ -22,6 +23,7 @@ app.use(morgan('dev'));
 // API Routes
 app.use('/api/gigs', gigRoutes);
 app.use('/api/applications', applicationRoutes);
+app.use('/api/auth', authRoutes);
 
 // Root/Health Check Route
 app.get('/', (req, res) => {
