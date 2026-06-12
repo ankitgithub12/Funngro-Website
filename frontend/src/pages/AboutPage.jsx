@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ChevronDown, ChevronUp, ShieldCheck, Milestone, CheckCircle2 } from 'lucide-react';
+import { ChevronDown, ChevronUp, ShieldCheck, Milestone, Award, Users, Linkedin, Briefcase, Network } from 'lucide-react';
 import GlassCard from '../components/GlassCard';
 
 const FAQS = [
@@ -26,6 +26,67 @@ const FAQS = [
   }
 ];
 
+const FOUNDERS = [
+  {
+    name: "Payal Jain",
+    role: "Founder & CEO",
+    bio: "An IIM Calcutta alumna with over two decades of corporate leadership experience. Payal successfully pitched Funngro on Shark Tank India Season 2, securing investment from Amit Jain (CarDekho) and Namita Thapar. She drives the product vision, brand design, and community operations.",
+    linkedin: "https://www.linkedin.com/in/payaljain-funngro"
+  },
+  {
+    name: "Anik Jain",
+    role: "Co-Founder & CFO",
+    bio: "An IIM Calcutta PGDCM alumnus with extensive experience across the BFSI (Banking, Financial Services, and Insurance) and Insurtech industries. Anik manages Funngro's compliance, brand partner acquisitions, financial operations, and unit economics.",
+    linkedin: "https://www.linkedin.com/in/anikjain-funngro"
+  }
+];
+
+const TIMELINE = [
+  {
+    date: "Dec 2022",
+    title: "Shark Tank Investment",
+    desc: "Funngro secured funding on Shark Tank India Season 2. Following the national broadcast, our user registration doubled within 30 days."
+  },
+  {
+    date: "2023",
+    title: "1 Million Earners",
+    desc: "Reached the milestone of 1 million registered student earners in India, growing entirely organically with zero marketing spend."
+  },
+  {
+    date: "Q4 FY25",
+    title: "Profitable Growth",
+    desc: "Funngro recorded its first profitable quarter while scaling to 3 million users and ranking among the Top 10 education/learning apps."
+  },
+  {
+    date: "FY26",
+    title: "70 Lakh Active Users",
+    desc: "Connecting over 70 lakh young Indians with 5,000+ verified corporate brands. Profitable, scalable, and secure operations."
+  }
+];
+
+const MOATS = [
+  {
+    num: "01",
+    title: "Support & Onboarding",
+    desc: "Teenagers guide other teens, answering queries and verifying KYC credentials asynchronously."
+  },
+  {
+    num: "02",
+    title: "Bug Bashes & QA",
+    desc: "Active user testing clans log thousands of UI audits, functionality reviews, and QA tests."
+  },
+  {
+    num: "03",
+    title: "Content & Design",
+    desc: "All social graphics, email banners, Reels, and blog illustrations are made by our student creators."
+  },
+  {
+    num: "04",
+    title: "Community & Clans",
+    desc: "Clans coordinate peer reviews, guide campaign submissions, and manage local meetups."
+  }
+];
+
 export default function AboutPage() {
   const { t } = useTranslation();
   const [openFaq, setOpenFaq] = useState(null);
@@ -46,36 +107,97 @@ export default function AboutPage() {
       <div className="mx-auto max-w-4xl px-4 sm:px-6">
         
         {/* Header Section */}
-        <div className="text-center mb-16 animate-fade-up">
+        <div className="text-center mb-20 animate-fade-up">
           <span className="section-pill justify-center mb-4">About Funngro</span>
           <h1 className="font-display text-4xl sm:text-5xl font-black text-white mb-6 leading-tight">
-            Connecting young talents with <span className="headline-accent">real brands.</span>
+            Built so young Indians can <span className="headline-accent">earn for real.</span>
           </h1>
           <p className="text-slate-400 text-sm max-w-xl mx-auto leading-relaxed">
-            Seen on Shark Tank India Season 2, backed by Amit Jain & SucSEED, Funngro is India’s largest pocket-money earning and skill acquisition platform for teenagers.
+            Seen on Shark Tank India Season 2, backed by CarDekho's Amit Jain and SucSEED Indovation, Funngro is India’s largest pocket-money earning and skill acquisition platform.
           </p>
         </div>
 
-        {/* Corporate Trust section */}
-        <div className="grid md:grid-cols-2 gap-6 mb-20 animate-fade-up">
-          <GlassCard className="p-8">
-            <ShieldCheck className="h-10 w-10 text-brand-green mb-4" />
-            <h3 className="font-display text-xl font-bold text-white mb-3">Our Mission</h3>
-            <p className="text-xs text-slate-400 leading-relaxed">
-              We aim to enable early financial literacy and independence for young India. By participating in project-based tasks, students develop soft skills, understand commercial expectations, and start building financial savings responsibly.
-            </p>
-          </GlassCard>
+        {/* Founding Team Section */}
+        <div className="mb-24 animate-fade-up">
+          <div className="text-center mb-12">
+            <span className="section-pill justify-center mb-3">Leadership</span>
+            <h2 className="font-display text-3xl font-bold text-white">Founding Team</h2>
+          </div>
 
-          <GlassCard className="p-8">
-            <Milestone className="h-10 w-10 text-brand-green mb-4" />
-            <h3 className="font-display text-xl font-bold text-white mb-3">Verified Operations</h3>
-            <p className="text-xs text-slate-400 leading-relaxed">
-              Funngro has worked with over 5,000 corporate brands across India. We strictly audit company campaigns to ensure tasks are age-appropriate, ethical, and offer transparent timelines and payout amounts.
-            </p>
-          </GlassCard>
+          <div className="grid md:grid-cols-2 gap-8">
+            {FOUNDERS.map((founder, i) => (
+              <GlassCard key={i} className="p-8 border-brand-green/10 hover:border-brand-green/20 relative group transition-all duration-300">
+                <div className="flex items-center justify-between mb-4">
+                  <div>
+                    <h3 className="font-display text-xl font-bold text-white group-hover:text-brand-green transition-colors">{founder.name}</h3>
+                    <span className="text-[10px] text-brand-green font-bold uppercase tracking-wider">{founder.role}</span>
+                  </div>
+                  <a 
+                    href={founder.linkedin}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="p-2 rounded-lg bg-white/5 hover:bg-brand-green hover:text-brand-dark-bg text-slate-400 transition-all"
+                    aria-label={`${founder.name} LinkedIn`}
+                  >
+                    <Linkedin className="h-4 w-4" />
+                  </a>
+                </div>
+                <p className="text-xs text-slate-400 leading-relaxed pt-2 border-t border-white/5">
+                  {founder.bio}
+                </p>
+              </GlassCard>
+            ))}
+          </div>
         </div>
 
-        {/* Interactive FAQ Accordion */}
+        {/* Milestones / Timeline Section */}
+        <div className="mb-24 animate-fade-up">
+          <div className="text-center mb-12">
+            <span className="section-pill justify-center mb-3">Our Journey</span>
+            <h2 className="font-display text-3xl font-bold text-white">Timeline & Milestones</h2>
+          </div>
+
+          <div className="relative border-l border-white/10 pl-8 ml-4 space-y-12">
+            {TIMELINE.map((item, i) => (
+              <div key={i} className="relative">
+                {/* Timeline Dot */}
+                <div className="absolute -left-[41px] top-1.5 w-4.5 h-4.5 rounded-full bg-brand-dark-bg border border-brand-green flex items-center justify-center">
+                  <div className="w-1.5 h-1.5 rounded-full bg-brand-green" />
+                </div>
+                <span className="text-[10px] font-bold text-brand-green uppercase tracking-wider block mb-1">{item.date}</span>
+                <h3 className="text-base font-bold text-white mb-2">{item.title}</h3>
+                <p className="text-xs text-slate-400 leading-relaxed max-w-2xl">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Operations Moat ("Run by users") */}
+        <div className="mb-24 animate-fade-up">
+          <div className="text-center mb-12">
+            <span className="section-pill justify-center mb-3">Operational Moat</span>
+            <h2 className="font-display text-3xl font-bold text-white mb-3">Run by Young India</h2>
+            <p className="text-slate-400 text-xs max-w-md mx-auto leading-relaxed">
+              We practice what we preach. Over 100 teenager users run critical operations inside the Funngro company directly.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 gap-6">
+            {MOATS.map((moat, i) => (
+              <GlassCard key={i} className="p-6 border-brand-green/5 hover:border-brand-green/15 flex items-start gap-4">
+                <span className="font-display text-2xl font-black text-brand-green bg-brand-green/5 w-12 h-12 rounded-xl flex items-center justify-center shrink-0">
+                  {moat.num}
+                </span>
+                <div>
+                  <h3 className="font-display text-sm font-bold text-white mb-1.5">{moat.title}</h3>
+                  <p className="text-[11px] text-slate-400 leading-relaxed">{moat.desc}</p>
+                </div>
+              </GlassCard>
+            ))}
+          </div>
+        </div>
+
+        {/* FAQ Accordion (Premium preservation) */}
         <div className="animate-fade-up">
           <div className="text-center mb-10">
             <span className="section-pill justify-center mb-2">Got Questions?</span>

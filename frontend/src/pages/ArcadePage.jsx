@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Gamepad2, Award, RefreshCw, CheckCircle2, AlertTriangle, HelpCircle } from 'lucide-react';
+import { Gamepad2, Award, RefreshCw, CheckCircle2, AlertTriangle, HelpCircle, ArrowUpRight, Play } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import GlassCard from '../components/GlassCard';
 
@@ -48,6 +48,56 @@ const QUIZ_QUESTIONS = [
     ],
     ans: 1,
     hint: "Quality and speed are metrics recorded by brand teams."
+  }
+];
+
+const ARCADE_CATEGORIES = [
+  {
+    id: "01",
+    title: "Earn",
+    subtitle: "Apps that pay you",
+    color: "border-brand-green/20 hover:border-brand-green/40 bg-brand-green/02",
+    badgeColor: "bg-brand-green/10 text-brand-green",
+    apps: [
+      { name: "Bug Bash", desc: "Find bugs in real corporate apps. Paid cash per verified report.", link: "https://play.google.com/store/apps/details?id=com.wishbanc.funngro" },
+      { name: "Skill Quest", desc: "Prove your knowledge in core subjects to win cash rewards.", link: "https://play.google.com/store/apps/details?id=com.wishbanc.funngro" },
+      { name: "Learn & Earn", desc: "Learn key performance marketing concepts, pass quiz, get paid.", link: "https://play.google.com/store/apps/details?id=com.wishbanc.funngro" }
+    ]
+  },
+  {
+    id: "02",
+    title: "Learn",
+    subtitle: "Apps that teach",
+    color: "border-blue-500/20 hover:border-blue-500/40 bg-blue-500/02",
+    badgeColor: "bg-blue-500/10 text-blue-400",
+    apps: [
+      { name: "Financial Quiz", desc: "Bite-sized money basics. Score 100% in our quiz widget above!", activeQuiz: true },
+      { name: "Maths Function", desc: "Timed operations drills to build speed and cognitive arithmetic.", link: "https://lovable.dev" }
+    ]
+  },
+  {
+    id: "03",
+    title: "Puzzle & Brain",
+    subtitle: "Flex your mind",
+    color: "border-purple-500/20 hover:border-purple-500/40 bg-purple-500/02",
+    badgeColor: "bg-purple-500/10 text-purple-400",
+    apps: [
+      { name: "Sudoku & Crossword", desc: "Classic numbers grid placement and word trivia puzzles.", link: "https://lovable.dev" },
+      { name: "2048 & Chess", desc: "Strategic board configurations and logic merging puzzles.", link: "https://lovable.dev" },
+      { name: "Solitaire & Free Flow", desc: "Card sequencing stacks and geometric color line linkers.", link: "https://lovable.dev" }
+    ]
+  },
+  {
+    id: "04",
+    title: "Play & Classics",
+    subtitle: "Pass time",
+    color: "border-amber-500/20 hover:border-amber-500/40 bg-amber-500/02",
+    badgeColor: "bg-amber-500/10 text-amber-400",
+    apps: [
+      { name: "Ludo & Tic Tac Toe", desc: "Classic multiplayer board dice matches and simple turn strategies.", link: "https://lovable.dev" },
+      { name: "Tetris & Ball Bounce", desc: "Retro brick puzzles and dynamic physics break matching.", link: "https://lovable.dev" },
+      { name: "Water Splash", desc: "Vibrant match-three arcade solver and fluid puzzles.", link: "https://lovable.dev" }
+    ]
   }
 ];
 
@@ -104,28 +154,28 @@ export default function ArcadePage() {
         <div className="absolute inset-0 grid-bg opacity-15" />
       </div>
 
-      <div className="mx-auto max-w-4xl px-4 sm:px-6">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
         <div className="text-center mb-12 animate-fade-up">
           <span className="section-pill justify-center mb-4">Funngro Arcade</span>
           <h1 className="font-display text-4xl sm:text-5xl font-black text-white mb-4 leading-tight">
-            Learn-to-Earn <span className="headline-accent">Arcade.</span>
+            Play games. Learn & <span className="headline-accent">Earn.</span>
           </h1>
-          <p className="text-slate-400 text-sm max-w-lg mx-auto">
-            Test your brand awareness and financial literacy! Score 100% to unlock the digital "Smart Saver" profile badge in your account.
+          <p className="text-slate-400 text-sm max-w-lg mx-auto leading-relaxed">
+            Test your brand awareness, learn financial literacy, or play puzzles to sharpen your mind. Score 100% on our finance quiz to unlock a special profile badge!
           </p>
         </div>
 
-        {/* Game Area */}
-        <div className="animate-fade-up">
+        {/* Game Area (Quiz Showcase) */}
+        <div className="animate-fade-up mb-24">
           {!isPlaying ? (
             <GlassCard className="text-center p-12 max-w-xl mx-auto border-brand-green/20 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-24 h-24 bg-brand-green/05 rounded-bl-full pointer-events-none" />
               <Gamepad2 className="h-16 w-16 text-brand-green mx-auto mb-6 animate-float" />
               <h2 className="text-2xl font-bold text-white mb-3 font-display">Funngro Financial Quiz</h2>
               <p className="text-xs text-slate-400 mb-8 max-w-md mx-auto">
-                Includes 4 real-world scenario questions on budgeting, brand marketing metrics, and child digital safety.
+                Test your knowledge on interest, pocket savings, performance marketing, and digital privacy rules in India.
               </p>
               <button onClick={startQuiz} className="btn-glow px-10 py-3.5 text-xs">
                 Start Game
@@ -234,6 +284,83 @@ export default function ArcadePage() {
               </div>
             </GlassCard>
           )}
+        </div>
+
+        {/* 20+ Apps Catalog Section */}
+        <div className="animate-fade-up">
+          <div className="text-center mb-16">
+            <span className="section-pill justify-center mb-3">App Catalog</span>
+            <h2 className="font-display text-3xl font-bold text-white mb-4">Twenty apps. Four ways to use them.</h2>
+            <p className="text-slate-400 text-xs max-w-md mx-auto leading-relaxed">
+              Explore games, micro-learning topics, and task interfaces built specifically for student growth and earnings.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {ARCADE_CATEGORIES.map((category) => (
+              <GlassCard 
+                key={category.id} 
+                className={`p-8 border transition-all duration-300 relative group overflow-hidden ${category.color}`}
+              >
+                {/* Visual Category Decor */}
+                <div className="absolute top-0 right-0 w-32 h-32 bg-white/[0.01] rounded-bl-full pointer-events-none group-hover:bg-white/[0.02] transition-colors" />
+                
+                {/* Category Header */}
+                <div className="flex items-center justify-between mb-6">
+                  <div>
+                    <span className="text-[11px] font-bold text-slate-500 uppercase tracking-widest block mb-1">Category {category.id}</span>
+                    <h3 className="font-display text-2xl font-bold text-white">{category.title}</h3>
+                  </div>
+                  <span className={`px-3 py-1 rounded-full text-[9px] font-bold tracking-wider uppercase ${category.badgeColor}`}>
+                    {category.subtitle}
+                  </span>
+                </div>
+
+                {/* Apps Grid List */}
+                <div className="space-y-4 pt-2 border-t border-white/5">
+                  {category.apps.map((app, index) => (
+                    <div 
+                      key={index} 
+                      className="p-4 rounded-xl bg-white/[0.02] hover:bg-white/[0.04] border border-white/[0.04] hover:border-white/[0.08] transition-all flex items-start justify-between gap-4 group/app"
+                    >
+                      <div>
+                        <h4 className="text-xs font-bold text-white group-hover/app:text-brand-green transition-colors flex items-center gap-1.5">
+                          {app.name}
+                          {app.activeQuiz && (
+                            <span className="w-1.5 h-1.5 rounded-full bg-brand-green animate-ping" />
+                          )}
+                        </h4>
+                        <p className="text-[10px] text-slate-400 mt-1 leading-relaxed">{app.desc}</p>
+                      </div>
+
+                      {app.activeQuiz ? (
+                        <button 
+                          onClick={() => {
+                            setIsPlaying(true);
+                            window.scrollTo({ top: 300, behavior: 'smooth' });
+                          }}
+                          className="p-2 rounded-lg bg-brand-green/10 group-hover/app:bg-brand-green/20 text-brand-green transition-colors shrink-0 self-center"
+                          aria-label="Play quiz"
+                        >
+                          <Play className="h-3.5 w-3.5 fill-current" />
+                        </button>
+                      ) : (
+                        <a 
+                          href={app.link}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="p-2 rounded-lg bg-white/5 group-hover/app:bg-brand-green group-hover/app:text-brand-dark-bg text-slate-400 transition-colors shrink-0 self-center"
+                          aria-label={`Open ${app.name}`}
+                        >
+                          <ArrowUpRight className="h-3.5 w-3.5" />
+                        </a>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </GlassCard>
+            ))}
+          </div>
         </div>
 
       </div>
