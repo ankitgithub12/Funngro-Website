@@ -1,0 +1,288 @@
+{
+  "nav": {
+    "earn": "Earn",
+    "stories": "Stories",
+    "forBrands": "For Brands",
+    "arcade": "Arcade",
+    "sheLancer": "SheLancer",
+    "about": "About",
+    "blog": "Blog",
+    "download": "Download",
+    "announcement": "As seen on <strong>Shark Tank India</strong> · Season 2 · Backed by Amit Jain & SucSEED",
+    "readStory": "Read story"
+  },
+  "teen": {
+    "breadcrumb": {
+      "home": "Home",
+      "howItWorks": "How it works"
+    },
+    "hero": {
+      "pill": "Chapter one · Five steps",
+      "heading1": "Five steps from",
+      "heading2": "first tap to",
+      "headingAccent": "first payout.",
+      "subtext": "Most users earn their first rupee within twenty-four hours. Here is precisely how it happens, step by step.",
+      "ctaDownload": "Download app →",
+      "ctaBrowse": "See real brand work ▸"
+    },
+    "stats": {
+      "youngIndians": "Young Indians",
+      "ageRange": "Age 14–25",
+      "playRating": "Play Store Rating",
+      "reviews": "70,000+ reviews",
+      "earningToday": "Earning Today",
+      "liveNow": "Live right now",
+      "firstPayout": "First Payout",
+      "upiZeroFees": "UPI · Zero fees"
+    },
+    "steps": {
+      "pill": "How it works",
+      "heading": "From first tap to",
+      "headingAccent": "full income.",
+      "step1": {
+        "title": "Download & sign up",
+        "highlight": "2 min setup",
+        "description": "Download the Funngro app on Android. Verify with OTP and add your UPI ID. That is all you need to start earning from real brand campaigns. Free forever."
+      },
+      "step2": {
+        "title": "Pick a brand campaign",
+        "highlight": "Real brands, real briefs",
+        "description": "Browse campaigns from India's biggest brands. Pick what excites you — influencer briefs, product sampling, referrals, or surveys. Every campaign shows the exact pay before you start."
+      },
+      "step3": {
+        "title": "Do the work",
+        "highlight": "Flexible hours",
+        "description": "Complete the campaign on your schedule. Post on social media, share with friends, try the product, or fill the survey. Funngro validates your submission before crediting."
+      },
+      "step4": {
+        "title": "Get paid in UPI",
+        "highlight": "First payout < 24h",
+        "description": "Once approved, money hits your UPI in seconds. Zero fees. No minimum balance. First-time users typically see their first rupee within twenty-four hours."
+      },
+      "step5": {
+        "title": "Grow your ladder",
+        "highlight": "Starter → Builder",
+        "description": "Each campaign unlocks higher-paying opportunities. Level up from Starter to Grower to Builder. Top earners lead their own Clan and earn from their team's work too."
+      }
+    },
+    "journey": {
+      "pill": "Your journey",
+      "heading": "7-step progression sequence",
+      "steps": [
+        "Explore brands & products",
+        "Share feedback & insights",
+        "Influence your peers",
+        "Complete brand campaigns",
+        "Unlock higher-earning tasks",
+        "Support referrals & sales",
+        "Build your own micro-business"
+      ],
+      "callout": {
+        "label": "Stage 03 · Build Your Own Business",
+        "avg": "/mo avg",
+        "top5": "Top 5% earns ₹18,000+/month"
+      }
+    },
+    "principles": {
+      "pill": "Funngro philosophy",
+      "heading": "Six principles of",
+      "headingAccent": "growth.",
+      "items": [
+        {
+          "title": "Participation-to-Execution",
+          "desc": "Start simple with surveys and referrals. Progress to executing real brand projects independently."
+        },
+        {
+          "title": "Progressive Earning Model",
+          "desc": "Level up from task-based pay to referrals, then to business revenue as you build trust."
+        },
+        {
+          "title": "Trust Before Influence",
+          "desc": "Earn your reputation with consistent work. Trust unlocks access to premium brand campaigns."
+        },
+        {
+          "title": "Movement Up Value Chain",
+          "desc": "Each stage moves you higher in the value chain — from consumer to promoter to creator to leader."
+        },
+        {
+          "title": "Capability-Linked Income",
+          "desc": "Your earning ceiling rises with your skills. Funngro tracks every task to match higher-value work."
+        },
+        {
+          "title": "Own Your Micro-Business",
+          "desc": "The final stage: build and lead your own team. Earn from your Clan's work while brands pay you directly."
+        }
+      ]
+    },
+    "stories": {
+      "pill": "Real earners",
+      "heading1": "People you'll want",
+      "heading2": "to",
+      "headingAccent": "become.",
+      "seeAll": "See all stories ▸",
+      "age": "Age",
+      "earners": [
+        { "name": "Sarthak K.", "age": 16, "city": "Pune", "earned": "₹3.9L+", "desc": "Brand promotion & influencer campaigns" },
+        { "name": "Anshika R.", "age": 19, "city": "Delhi", "earned": "₹2.25L+", "desc": "Content creation & referral campaigns" },
+        { "name": "Ashwani S.", "age": 17, "city": "Chandigarh", "earned": "₹66K+", "desc": "Product sampling & surveys" },
+        { "name": "Sayyam M.", "age": 18, "city": "Mumbai", "earned": "₹63K+", "desc": "Fintech & edtech referrals" }
+      ]
+    },
+    "gigs": {
+      "pill": "Live on Funngro",
+      "heading": "Active brand",
+      "headingAccent": "campaigns",
+      "searchPlaceholder": "Search campaigns or brands...",
+      "searchLabel": "Search brand campaigns",
+      "filters": ["All", "Design", "Writing", "Tech", "Video", "Marketing"],
+      "noResults": "No campaigns match your filter.",
+      "resetFilters": "Reset filters",
+      "posted": "Posted",
+      "apply": "Apply Now",
+      "budget": "Budget",
+      "duration": "Duration"
+    },
+    "cta": {
+      "pill": "Get started free",
+      "heading": "Your first rupee is",
+      "headingAccent": "three taps away.",
+      "subtext": "Download. Sign up. Pick a campaign. That's it. First payout in under 24 hours — guaranteed.",
+      "ctaDownload": "Download app →",
+      "ctaFollow": "Follow @funngro ▸"
+    },
+    "toast": {
+      "title": "Application Submitted!",
+      "sub": "The brand team will review your application."
+    }
+  },
+  "brands": {
+    "hero": {
+      "pill": "For marketing leaders · Work with young India",
+      "heading1": "Work with 70 lakh young Indians on the things",
+      "headingAccent": "brands actually need.",
+      "subtext": "Promotion, sampling, content, surveys, influencer briefs, app testing, ideation, sales support — from a verified pool of seventy lakh young Indians who already use, follow, and care about brands like yours.",
+      "ctaGetInTouch": "Get in touch →",
+      "ctaEmail": "hello@funngro.com ▸",
+      "note": "Real human reads every email · DPDP-compliant"
+    },
+    "stats": {
+      "youngIndians": "Young Indians",
+      "ageRange": "Age 14–25",
+      "brands": "Brands",
+      "activePartners": "Active partners",
+      "liveProjects": "Live Projects",
+      "rightNow": "Right now",
+      "workCategories": "Work Categories",
+      "pickWhatFits": "Pick what fits"
+    },
+    "valueProp": {
+      "pill": "Why Funngro",
+      "heading1": "Reach is plentiful.",
+      "headingAccent": "Real action is scarce.",
+      "subtext": "Impressions and reach are cheap. What actually moves brands is verified action — authentic promotion, someone genuinely trying your product, a referral from a trusted peer. That is precisely what Funngro sells. No bots. No inflated metrics. Only real, verified action from seventy lakh young Indians who genuinely engage."
+    },
+    "campaigns": {
+      "pill": "What you can run",
+      "heading": "Pick what you",
+      "headingAccent": "need.",
+      "subtext": "Nine campaign types, one platform. Mix and match or run them all.",
+      "types": [
+        { "title": "Promotion", "desc": "Brand awareness, recall, and social posts. Your audience becomes a brand audience.", "tags": ["Social media", "Awareness", "Recall"] },
+        { "title": "Sampling", "desc": "FMCG, beauty, food & beverage product trials. Real feedback from real users.", "tags": ["FMCG", "Beauty", "Food & Bev"] },
+        { "title": "Referrals", "desc": "Peer growth with Clan multipliers. Ideal for fintech, edtech, and gaming.", "tags": ["Fintech", "Edtech", "Gaming"] },
+        { "title": "Influencer", "desc": "Micro and nano creator campaigns. Authentic voices with verified audiences.", "tags": ["Micro", "Nano", "Creator"] },
+        { "title": "Content", "desc": "UGC reels, posts, blogs, and photos. Full asset rights with every brief.", "tags": ["Reels", "UGC", "Blog"] },
+        { "title": "Insights", "desc": "Targeted brand surveys, NPS, and feedback from your exact Gen-Z cohort.", "tags": ["Surveys", "NPS", "Research"] },
+        { "title": "App Testing", "desc": "QA, bug reports, and usability testing from real teen users at scale.", "tags": ["QA", "Bug reports", "UX"] },
+        { "title": "Ideation", "desc": "Cohort product and concept testing. Gen-Z insights before you build.", "tags": ["Concept test", "Focus group", "Product"] },
+        { "title": "Sales", "desc": "Affiliate-style conversions with performance tracking and verified action data.", "tags": ["Affiliate", "CPA", "Sales"] }
+      ]
+    },
+    "verticals": {
+      "pill": "Industries we serve",
+      "heading": "Twelve",
+      "headingAccent": "verticals covered."
+    },
+    "caseStudy": {
+      "badge": "Case Study · Fintech",
+      "heading1": "₹38 CPA.",
+      "heading2": "68% completion.",
+      "headingAccent": "Zero bots.",
+      "subtext": "A top-10 Indian fintech ran a referral campaign across Funngro's verified pool. The results outperformed every prior digital channel — at a fraction of the cost.",
+      "cta": "Start your campaign →",
+      "tableMetric": "Metric",
+      "tableFunngro": "Funngro",
+      "tableIndustry": "Industry Avg",
+      "footnote": "Data from 6-month fintech campaign · 2025 · All actions verified"
+    },
+    "cta": {
+      "pill": "Ready to start?",
+      "heading": "Tell us what you're",
+      "headingAccent": "trying to do.",
+      "subtext": "Drop us a message or post a campaign directly. A real human reads every email within one business day.",
+      "ctaGetInTouch": "Get in touch →",
+      "ctaEmail": "hello@funngro.com ▸",
+      "note": "Real human reads every email · DPDP-compliant · Made in India 🇮🇳"
+    },
+    "dashboard": {
+      "title": "Campaign Dashboard",
+      "campaigns": "campaigns",
+      "pending": "pending",
+      "approved": "approved",
+      "postBtn": "Post a Campaign",
+      "inbox": "Application Inbox",
+      "published": "Published Campaigns",
+      "noApps": "No applications in this status.",
+      "filters": ["all", "pending", "approved", "rejected"],
+      "table": {
+        "campaign": "Campaign",
+        "category": "Category",
+        "budget": "Budget",
+        "timeline": "Timeline",
+        "skills": "Skills"
+      }
+    },
+    "toast": {
+      "title": "Campaign Published!",
+      "sub": "Young Indians will see your campaign now."
+    }
+  },
+  "footer": {
+    "tagline": "India's largest youth earning platform. 70 lakh+ young Indians work with India's biggest brands. Free, forever.",
+    "getItOn": "GET IT ON",
+    "downloadOn": "DOWNLOAD ON",
+    "googlePlay": "Google Play",
+    "appStore": "App Store",
+    "madeInIndia": "Made in India",
+    "dpdpCompliant": "DPDP-compliant",
+    "copyright": "© 2026 Funngro Technologies Pvt. Ltd.",
+    "terms": "Terms",
+    "privacy": "Privacy",
+    "cookies": "Cookies",
+    "columns": {
+      "earn": "Earn",
+      "brands": "Brands",
+      "company": "Company",
+      "legal": "Legal"
+    }
+  },
+  "marquee": {
+    "pill": "The Brand Wall",
+    "heading": "Real brands. Real rupees. Every day."
+  },
+  "ticker": {
+    "live": "Live",
+    "paidThisWeek": "Paid This Week",
+    "upiInstant": "UPI · Instant · Zero Fees"
+  },
+  "cookie": {
+    "title": "We value your privacy 🍪",
+    "desc": "We use cookies to improve your experience, analyse traffic, and show relevant content.",
+    "acceptAll": "Accept All",
+    "rejectAll": "Reject All",
+    "customise": "Customise preferences ›",
+    "savePrefs": "Save Preferences",
+    "learnMore": "Learn more in our Privacy Policy →",
+    "dpdpNote": "Under the Digital Personal Data Protection Act, you have the right to know what data we collect, withdraw consent at any time, and request deletion of your data."
+  }
+}

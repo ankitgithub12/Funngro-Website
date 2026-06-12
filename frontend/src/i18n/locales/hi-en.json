@@ -1,0 +1,288 @@
+{
+  "nav": {
+    "earn": "Kamao",
+    "stories": "Stories",
+    "forBrands": "Brands ke liye",
+    "arcade": "Arcade",
+    "sheLancer": "SheLancer",
+    "about": "Hamare baare mein",
+    "blog": "Blog",
+    "download": "Download Karo",
+    "announcement": "<strong>Shark Tank India</strong> mein dekha gaya · Season 2 · Amit Jain & SucSEED ka support",
+    "readStory": "Story padho"
+  },
+  "teen": {
+    "breadcrumb": {
+      "home": "Home",
+      "howItWorks": "Kaise kaam karta hai"
+    },
+    "hero": {
+      "pill": "Pehla chapter · Paanch step",
+      "heading1": "Pehle tap se",
+      "heading2": "pehli kamai tak",
+      "headingAccent": "paanch step.",
+      "subtext": "Zyaadatar users 24 ghante ke andar apna pehla rupaya kamate hain. Yahan bataya gaya hai yeh step by step kaise hota hai.",
+      "ctaDownload": "App Download Karo →",
+      "ctaBrowse": "Real brand kaam dekho ▸"
+    },
+    "stats": {
+      "youngIndians": "Young Indians",
+      "ageRange": "Umar 14–25",
+      "playRating": "Play Store Rating",
+      "reviews": "70,000+ reviews",
+      "earningToday": "Aaj kama rahe hain",
+      "liveNow": "Abhi live",
+      "firstPayout": "Pehla Payout",
+      "upiZeroFees": "UPI · Zero Fees"
+    },
+    "steps": {
+      "pill": "Kaise kaam karta hai",
+      "heading": "Pehle tap se",
+      "headingAccent": "poori kamai tak.",
+      "step1": {
+        "title": "Download karo & sign up karo",
+        "highlight": "2 minute setup",
+        "description": "Android par Funngro app download karo. OTP se verify karo aur apni UPI ID add karo. Bas itna hi chahiye real brand campaigns se kamana shuru karne ke liye. Hamesha free."
+      },
+      "step2": {
+        "title": "Brand campaign chuno",
+        "highlight": "Real brands, real kaam",
+        "description": "India ke sabse bade brands ke campaigns dekho. Jo pasand aaye woh chuno — influencer briefs, product sampling, referrals, ya surveys. Har campaign shuru karne se pehle exact pay dikhata hai."
+      },
+      "step3": {
+        "title": "Kaam karo",
+        "highlight": "Flexible hours",
+        "description": "Apni convenience par campaign complete karo. Social media par post karo, doston ke saath share karo, product try karo, ya survey bharo."
+      },
+      "step4": {
+        "title": "UPI mein paise pao",
+        "highlight": "Pehla payout < 24 ghante",
+        "description": "Approve hone ke baad, paisa seconds mein UPI mein aa jaata hai. Zero fees. Koi minimum balance nahi. Pehli baar ke users typically 24 ghante mein pehla rupaya dekhte hain."
+      },
+      "step5": {
+        "title": "Apni ladder badhao",
+        "highlight": "Starter → Builder",
+        "description": "Har campaign zyaada paying opportunities kholti hai. Starter se Grower se Builder tak level up karo. Top earners apna Clan lead karte hain."
+      }
+    },
+    "journey": {
+      "pill": "Tumhari journey",
+      "heading": "7-step progression sequence",
+      "steps": [
+        "Brands & products explore karo",
+        "Feedback & insights share karo",
+        "Apne peers ko influence karo",
+        "Brand campaigns complete karo",
+        "Zyaada earning wale tasks unlock karo",
+        "Referrals & sales support karo",
+        "Apna khud ka micro-business banao"
+      ],
+      "callout": {
+        "label": "Stage 03 · Apna Khud Ka Business Banao",
+        "avg": "/maah average",
+        "top5": "Top 5% ₹18,000+/maah kamate hain"
+      }
+    },
+    "principles": {
+      "pill": "Funngro philosophy",
+      "heading": "Growth ke",
+      "headingAccent": "chhe principles.",
+      "items": [
+        {
+          "title": "Participation se Execution tak",
+          "desc": "Surveys aur referrals se shuru karo. Real brand projects independently execute karne tak badho."
+        },
+        {
+          "title": "Progressive Earning Model",
+          "desc": "Task-based pay se referrals tak, phir business revenue tak level up karo."
+        },
+        {
+          "title": "Influence se Pehle Trust",
+          "desc": "Consistent kaam se apni reputation kamao. Trust premium brand campaigns tak access deta hai."
+        },
+        {
+          "title": "Value Chain Mein Upar Jaana",
+          "desc": "Har stage aapko consumer se promoter, phir creator, phir leader banata hai."
+        },
+        {
+          "title": "Capability se Judi Income",
+          "desc": "Tumhari earning ka ceiling tumhare skills ke saath badhta hai."
+        },
+        {
+          "title": "Apna Micro-Business Khud Chalao",
+          "desc": "Aakhri stage: apni team banao aur lead karo. Apne Clan ke kaam se kamao."
+        }
+      ]
+    },
+    "stories": {
+      "pill": "Real earners",
+      "heading1": "Woh log jaise aap",
+      "heading2": "banna",
+      "headingAccent": "chahte ho.",
+      "seeAll": "Saari stories dekho ▸",
+      "age": "Umar",
+      "earners": [
+        { "name": "Sarthak K.", "age": 16, "city": "Pune", "earned": "₹3.9L+", "desc": "Brand promotion & influencer campaigns" },
+        { "name": "Anshika R.", "age": 19, "city": "Delhi", "earned": "₹2.25L+", "desc": "Content creation & referral campaigns" },
+        { "name": "Ashwani S.", "age": 17, "city": "Chandigarh", "earned": "₹66K+", "desc": "Product sampling & surveys" },
+        { "name": "Sayyam M.", "age": 18, "city": "Mumbai", "earned": "₹63K+", "desc": "Fintech & edtech referrals" }
+      ]
+    },
+    "gigs": {
+      "pill": "Funngro par Live",
+      "heading": "Active brand",
+      "headingAccent": "campaigns",
+      "searchPlaceholder": "Campaigns ya brands khojo...",
+      "searchLabel": "Brand campaigns khojo",
+      "filters": ["Sabhi", "Design", "Writing", "Tech", "Video", "Marketing"],
+      "noResults": "Koi campaign tumhare filter se match nahi karta.",
+      "resetFilters": "Filters reset karo",
+      "posted": "Post kiya",
+      "apply": "Abhi Apply Karo",
+      "budget": "Budget",
+      "duration": "Duration"
+    },
+    "cta": {
+      "pill": "Free mein shuru karo",
+      "heading": "Tumhara pehla rupaya",
+      "headingAccent": "teen taps door hai.",
+      "subtext": "Download karo. Sign up karo. Campaign chuno. Bas itna. 24 ghante se kam mein pehla payout — guaranteed.",
+      "ctaDownload": "App Download Karo →",
+      "ctaFollow": "@funngro follow karo ▸"
+    },
+    "toast": {
+      "title": "Application Submit Ho Gayi!",
+      "sub": "Brand team tumhari application review karegi."
+    }
+  },
+  "brands": {
+    "hero": {
+      "pill": "Marketing leaders ke liye · Young India ke saath kaam karo",
+      "heading1": "70 lakh young Indians ke saath kaam karo un cheezon par jo",
+      "headingAccent": "brands ko actually chahiye.",
+      "subtext": "Promotion, sampling, content, surveys, influencer briefs, app testing, ideation, sales support — 70 lakh verified young Indians ke pool se.",
+      "ctaGetInTouch": "Contact Karo →",
+      "ctaEmail": "hello@funngro.com ▸",
+      "note": "Har email ek real insaan padhta hai · DPDP-compliant"
+    },
+    "stats": {
+      "youngIndians": "Young Indians",
+      "ageRange": "Umar 14–25",
+      "brands": "Brands",
+      "activePartners": "Active partners",
+      "liveProjects": "Live Projects",
+      "rightNow": "Abhi",
+      "workCategories": "Kaam ki categories",
+      "pickWhatFits": "Jo fit ho woh chuno"
+    },
+    "valueProp": {
+      "pill": "Funngro kyun",
+      "heading1": "Reach toh bahut hai.",
+      "headingAccent": "Real action rare hai.",
+      "subtext": "Impressions aur reach saste hain. Brands ko jo actually aage badhata hai woh hai verified action. Yahi Funngro bechta hai. Koi bots nahi."
+    },
+    "campaigns": {
+      "pill": "Aap kya chala sakte ho",
+      "heading": "Jo chahiye woh",
+      "headingAccent": "chuno.",
+      "subtext": "Nau campaign types, ek platform. Mix karo ya sab chalao.",
+      "types": [
+        { "title": "Promotion", "desc": "Brand awareness, recall, aur social posts.", "tags": ["Social media", "Awareness", "Recall"] },
+        { "title": "Sampling", "desc": "FMCG, beauty, food & bev product trials.", "tags": ["FMCG", "Beauty", "Food & Bev"] },
+        { "title": "Referrals", "desc": "Peer growth with Clan multipliers.", "tags": ["Fintech", "Edtech", "Gaming"] },
+        { "title": "Influencer", "desc": "Micro aur nano creator campaigns.", "tags": ["Micro", "Nano", "Creator"] },
+        { "title": "Content", "desc": "UGC reels, posts, blogs, aur photos.", "tags": ["Reels", "UGC", "Blog"] },
+        { "title": "Insights", "desc": "Targeted brand surveys, NPS, aur feedback.", "tags": ["Surveys", "NPS", "Research"] },
+        { "title": "App Testing", "desc": "QA, bug reports, aur usability testing.", "tags": ["QA", "Bug reports", "UX"] },
+        { "title": "Ideation", "desc": "Cohort product aur concept testing.", "tags": ["Concept test", "Focus group", "Product"] },
+        { "title": "Sales", "desc": "Affiliate-style conversions.", "tags": ["Affiliate", "CPA", "Sales"] }
+      ]
+    },
+    "verticals": {
+      "pill": "Hum kaunse industries serve karte hain",
+      "heading": "Barah",
+      "headingAccent": "verticals cover."
+    },
+    "caseStudy": {
+      "badge": "Case Study · Fintech",
+      "heading1": "₹38 CPA.",
+      "heading2": "68% completion.",
+      "headingAccent": "Zero bots.",
+      "subtext": "Ek top-10 Indian fintech ne Funngro ke verified pool mein referral campaign chalaya.",
+      "cta": "Apna campaign shuru karo →",
+      "tableMetric": "Metric",
+      "tableFunngro": "Funngro",
+      "tableIndustry": "Industry Avg",
+      "footnote": "6-maah fintech campaign ka data · 2025 · Sab actions verified"
+    },
+    "cta": {
+      "pill": "Shuru karne ke liye taiyar?",
+      "heading": "Batao tum kya",
+      "headingAccent": "karna chahte ho.",
+      "subtext": "Humein message bhejo ya directly campaign post karo. Har email ek real insaan ek working day mein padhta hai.",
+      "ctaGetInTouch": "Contact Karo →",
+      "ctaEmail": "hello@funngro.com ▸",
+      "note": "Har email ek real insaan padhta hai · DPDP-compliant · 🇮🇳 Made in India"
+    },
+    "dashboard": {
+      "title": "Campaign Dashboard",
+      "campaigns": "campaigns",
+      "pending": "pending",
+      "approved": "approved",
+      "postBtn": "Campaign Post Karo",
+      "inbox": "Application Inbox",
+      "published": "Published Campaigns",
+      "noApps": "Is status mein koi application nahi.",
+      "filters": ["sabhi", "pending", "approved", "rejected"],
+      "table": {
+        "campaign": "Campaign",
+        "category": "Category",
+        "budget": "Budget",
+        "timeline": "Timeline",
+        "skills": "Skills"
+      }
+    },
+    "toast": {
+      "title": "Campaign Publish Ho Gayi!",
+      "sub": "Young Indians abhi tumhara campaign dekhenge."
+    }
+  },
+  "footer": {
+    "tagline": "India ka sabse bada youth earning platform. 70 lakh+ young Indians India ke sabse bade brands ke saath kaam karte hain. Hamesha free.",
+    "getItOn": "GET IT ON",
+    "downloadOn": "DOWNLOAD ON",
+    "googlePlay": "Google Play",
+    "appStore": "App Store",
+    "madeInIndia": "🇮🇳 Made in India",
+    "dpdpCompliant": "DPDP-compliant",
+    "copyright": "© 2026 Funngro Technologies Pvt. Ltd.",
+    "terms": "Terms",
+    "privacy": "Privacy",
+    "cookies": "Cookies",
+    "columns": {
+      "earn": "Kamao",
+      "brands": "Brands",
+      "company": "Company",
+      "legal": "Legal"
+    }
+  },
+  "marquee": {
+    "pill": "Brand Wall",
+    "heading": "Real brands. Real rupaye. Har din."
+  },
+  "ticker": {
+    "live": "Live",
+    "paidThisWeek": "Is Hafte Mila",
+    "upiInstant": "UPI · Instant · Zero Fees"
+  },
+  "cookie": {
+    "title": "Hum tumhari privacy ko value karte hain 🍪",
+    "desc": "Hum cookies use karte hain tumhara experience better banane ke liye.",
+    "acceptAll": "Sab Accept Karo",
+    "rejectAll": "Sab Reject Karo",
+    "customise": "Preferences customize karo ›",
+    "savePrefs": "Preferences Save Karo",
+    "learnMore": "Hamare Privacy Policy mein aur jaano →",
+    "dpdpNote": "DPDP Act ke tahat, tumhare paas data jaanne, consent wapas lene, aur deletion request karne ka adhikar hai."
+  }
+}
