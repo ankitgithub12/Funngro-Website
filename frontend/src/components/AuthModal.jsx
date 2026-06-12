@@ -37,6 +37,32 @@ export default function AuthModal({ onClose, onAuthSuccess }) {
       return;
     }
 
+    // Email format validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      setError('Please enter a valid email address.');
+      setLoading(false);
+      return;
+    }
+
+    // Password strength check on signup
+    if (!isLogin) {
+      if (password.length < 8) {
+        setError('Password must be at least 8 characters long.');
+        setLoading(false);
+        return;
+      }
+      const hasUppercase = /[A-Z]/.test(password);
+      const hasLowercase = /[a-z]/.test(password);
+      const hasNumber = /[0-9]/.test(password);
+      const hasSpecial = /[^A-Za-z0-9]/.test(password);
+      if (!hasUppercase || !hasLowercase || !hasNumber || !hasSpecial) {
+        setError('Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character.');
+        setLoading(false);
+        return;
+      }
+    }
+
     if (!isLogin) {
       if (role === 'teen' && (!age || isNaN(Number(age)) || Number(age) < 13 || Number(age) > 25)) {
         setError('Applicants must be between 13 and 25 years old.');
@@ -211,6 +237,11 @@ export default function AuthModal({ onClose, onAuthSuccess }) {
               placeholder="••••••••"
               className="w-full px-4 py-2.5 rounded-xl text-xs glass-input"
             />
+            {!isLogin && (
+              <p className="text-[10px] text-slate-500 mt-1.5 leading-relaxed">
+                Password must be at least 8 characters, containing 1 uppercase letter, 1 lowercase letter, 1 number, and 1 special character.
+              </p>
+            )}
           </div>
 
           {/* Teen specific details */}

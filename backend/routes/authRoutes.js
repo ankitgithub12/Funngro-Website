@@ -25,6 +25,24 @@ router.post('/register', async (req, res) => {
       return res.status(400).json({ message: 'Please enter all required fields' });
     }
 
+    // Email format validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return res.status(400).json({ message: 'Please enter a valid email address' });
+    }
+
+    // Password strength validation
+    if (password.length < 8) {
+      return res.status(400).json({ message: 'Password must be at least 8 characters long' });
+    }
+    const hasUppercase = /[A-Z]/.test(password);
+    const hasLowercase = /[a-z]/.test(password);
+    const hasNumber = /[0-9]/.test(password);
+    const hasSpecial = /[^A-Za-z0-9]/.test(password);
+    if (!hasUppercase || !hasLowercase || !hasNumber || !hasSpecial) {
+      return res.status(400).json({ message: 'Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character' });
+    }
+
     if (role === 'teen' && !age) {
       return res.status(400).json({ message: 'Teens must enter their age' });
     }
@@ -103,6 +121,11 @@ router.post('/login', async (req, res) => {
 
     if (!email || !password) {
       return res.status(400).json({ message: 'Please enter all required fields' });
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return res.status(400).json({ message: 'Please enter a valid email address' });
     }
 
     let user = null;
