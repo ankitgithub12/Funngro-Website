@@ -29,7 +29,7 @@ const FOOTER_LINKS = {
     { label: 'Careers',         href: '#' },
     { label: 'Press',           href: '#' },
     { label: 'Shark Tank India',href: '#' },
-    { label: 'Instagram',       href: 'https://www.instagram.com/funngro/' },
+    { label: 'Instagram',       href: 'https://www.instagram.com/fun.n.gro' },
   ],
   Legal: [
     { label: 'Terms of Service',    href: '#' },
@@ -42,13 +42,13 @@ const FOOTER_LINKS = {
 };
 
 const SOCIAL_LINKS = [
-  { label: 'Instagram',  href: 'https://www.instagram.com/funngro/', icon: '📸' },
-  { label: 'LinkedIn',   href: 'https://www.linkedin.com/company/funngro', icon: '💼' },
-  { label: 'YouTube',    href: 'https://www.youtube.com/@funngro', icon: '▶' },
-  { label: 'Facebook',   href: '#', icon: 'f' },
-  { label: 'X (Twitter)',href: '#', icon: '𝕏' },
-  { label: 'WhatsApp',   href: '#', icon: '💬' },
-  { label: 'Reddit',     href: '#', icon: 'r/' },
+  { label: 'Instagram',  href: 'https://www.instagram.com/fun.n.gro', icon: '📸' },
+  { label: 'LinkedIn',   href: 'https://www.linkedin.com/company/funngro/', icon: '💼' },
+  { label: 'YouTube',    href: 'https://www.youtube.com/@funngro_India', icon: '▶' },
+  { label: 'Facebook',   href: 'https://www.facebook.com/funngro/', icon: 'f' },
+  { label: 'X (Twitter)',href: 'https://x.com/funngroofficial', icon: '𝕏' },
+  { label: 'WhatsApp',   href: 'https://www.whatsapp.com/channel/0029VaC43g0DTkK1Q83jMy2N', icon: '💬' },
+  { label: 'Reddit',     href: 'https://www.reddit.com/r/Funngro/?solution=e9d80a0f0585a741e9d80a0f0585a741&js_challenge=1&token=7afd7253fec22262ff1c52b1703fe9ec86a9503ee97b75feb7c8d6f41e0ab870&jsc_orig_r=&share_id=fYqhpTON4FmoTxldOcxKO&utm_content=1&utm_medium=android_app&utm_name=androidcss&utm_source=share&utm_term=1', icon: 'r/' },
 ];
 
 function FunngroLogoSmall() {
