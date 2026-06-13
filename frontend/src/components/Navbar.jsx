@@ -185,13 +185,16 @@ export default function Navbar({ activeTab, setActiveTab, currentUser, onLogout,
                   </button>
                 </div>
               ) : (
-                <button
-                  onClick={onOpenAuth}
-                  className="btn-glow text-[11px] px-4 py-2"
-                  aria-label="Sign In"
+                <a
+                  href="https://play.google.com/store/apps/details?id=com.wishbanc.funngro"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn-glow text-[11px] px-4 py-2 flex items-center gap-1.5"
+                  aria-label="Download Funngro App"
                 >
-                  Sign In
-                </button>
+                  <GooglePlayIcon size={14} className="shrink-0" />
+                  <span>{t('nav.download')}</span>
+                </a>
               )}
 
               {/* Mobile hamburger */}
@@ -277,12 +280,17 @@ export default function Navbar({ activeTab, setActiveTab, currentUser, onLogout,
                 </button>
               </div>
             ) : (
-              <button
-                onClick={() => { onOpenAuth(); setMobileOpen(false); }}
-                className="btn-glow mt-4 w-full justify-center text-xs"
+              <a
+                href="https://play.google.com/store/apps/details?id=com.wishbanc.funngro"
+                target="_blank"
+                rel="noreferrer"
+                className="btn-glow mt-4 w-full justify-center text-xs flex items-center gap-1.5"
+                onClick={() => setMobileOpen(false)}
+                aria-label="Download Funngro App"
               >
-                Sign In
-              </button>
+                <GooglePlayIcon size={14} className="shrink-0" />
+                <span>{t('nav.download')}</span>
+              </a>
             )}
           </div>
         )}
