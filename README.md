@@ -2,6 +2,10 @@
 
 > A full-stack MERN application connecting teenagers with real-world micro-gigs from companies. Teens earn, learn, and build portfolios — companies get affordable, creative talent.
 
+### 🌐 Live Deployment
+- **Frontend Application:** [https://funngro-website.onrender.com/](https://funngro-website.onrender.com/)
+- **Backend API Server:** [https://funngro-website-server.onrender.com](https://funngro-website-server.onrender.com)
+
 ---
 
 ## 📋 Table of Contents
@@ -230,6 +234,8 @@ npm run dev
 | Frontend (Teen view) | http://localhost:3000 |
 | Backend API health | http://localhost:5000 |
 | Gigs API | http://localhost:5000/api/gigs |
+| Live Deployed Frontend | [https://funngro-website.onrender.com/](https://funngro-website.onrender.com/) |
+| Live Deployed Backend | [https://funngro-website-server.onrender.com](https://funngro-website-server.onrender.com) |
 
 ---
 
